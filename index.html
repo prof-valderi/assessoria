@@ -10,16 +10,29 @@
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-  <header class="top-bar">
-    <div class="logo-text">Valmi Assessoria Acadêmica</div>
-    <nav class="top-nav">
-      <a href="#inicio">Início</a>
-      <a href="planos.html">Planos e Preços</a>
-      <a href="blog.html">Blog</a>
-      <a href="equipe.html">Equipe</a>
-      <a href="#contato" class="nav-btn">Contato</a>
-    </nav>
-  </header>
+    <header class="top-bar">
+        <div class="container top-bar-inner">
+            <!-- Botão hambúrguer (aparece no mobile) -->
+            <button class="menu-toggle" aria-label="Abrir menu">
+            <span></span>
+            <span></span>
+            <span></span>
+            </button>
+
+            <!-- Logo centralizado -->
+            <div class="logo-text">Valmi Assessoria Acadêmica</div>
+
+            <!-- Menu padrão (desktop e mobile expandido) -->
+            <nav class="top-nav">
+            <a href="#inicio">Início</a>
+            <a href="planos.html">Planos e Preços</a>
+            <a href="blog.html">Blog</a>
+            <a href="equipe.html">Equipe</a>
+            <a href="#contato" class="nav-btn">Contato</a>
+            </nav>
+        </div>
+    </header>
+
 
   <main>
     <!-- HERO -->
@@ -169,6 +182,31 @@
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
   </script>
+  <script>
+  // Ano do rodapé
+  const yearEl = document.getElementById('year');
+  if (yearEl) {
+    yearEl.textContent = new Date().getFullYear();
+  }
+
+  // Menu hambúrguer
+  const menuToggle = document.querySelector('.menu-toggle');
+  const topNav = document.querySelector('.top-nav');
+
+  if (menuToggle && topNav) {
+    menuToggle.addEventListener('click', () => {
+      topNav.classList.toggle('open');
+      menuToggle.classList.toggle('open');
+    });
+
+    // (Opcional) Fechar menu ao clicar em um link
+    topNav.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        topNav.classList.remove('open');
+        menuToggle.classList.remove('open');
+      });
+    });
+  }
+</script>
 </body>
 </html>
-
