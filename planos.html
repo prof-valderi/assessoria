@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Planos e Preços | Valmi Assessoria Acadêmica</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="top-bar">
+    <div class="logo-text">Valmi Assessoria Acadêmica</div>
+    <nav class="top-nav">
+      <a href="index.html#inicio">Início</a>
+      <a href="planos.html">Planos e Preços</a>
+      <a href="index.html#contato" class="nav-btn">Contato</a>
+    </nav>
+  </header>
+
+  <main class="page-main">
+    <section class="page-hero">
+      <h1>Planos e Preços</h1>
+      <p class="section-lead">
+        Escolha o formato mais adequado às suas necessidades acadêmicas.
+      </p>
+    </section>
+
+    <section class="pricing">
+      <div class="pricing-grid">
+        <!-- Plano 1 -->
+        <article class="pricing-card">
+          <h2>Plano Individual</h2>
+          <p class="pricing-tagline">Aulas particulares sob medida.</p>
+          <ul class="pricing-list">
+            <li>Atendimento 1:1 online</li>
+            <li>Disciplinas: Português, História, Filosofia</li>
+            <li>Correção comentada de exercícios</li>
+            <li>Relatório de desempenho mensal</li>
+          </ul>
+          <p class="pricing-price">
+            A partir de <strong>R$ 120,00</strong> / hora-aula*
+          </p>
+          <a href="index.html#contato" class="btn primary pricing-btn">
+            Solicitar orçamento
+          </a>
+          <p class="pricing-note">*Valores variam conforme carga horária.</p>
+        </article>
+
+        <!-- Plano 2 -->
+        <article class="pricing-card destaque">
+          <div class="badge">Mais procurado</div>
+          <h2>Plano Mentoria</h2>
+          <p class="pricing-tagline">
+            Acompanhamento contínuo para projetos e estudos.
+          </p>
+          <ul class="pricing-list">
+            <li>2 encontros semanais (online)</li>
+            <li>Suporte por e-mail entre encontros</li>
+            <li>Acompanhamento de TCC / monografia</li>
+            <li>Planejamento de estudos personalizado</li>
+          </ul>
+          <p class="pricing-price">
+            A partir de <strong>R$ 690,00</strong> / mês*
+          </p>
+          <a href="index.html#contato" class="btn primary pricing-btn">
+            Quero este plano
+          </a>
+          <p class="pricing-note">*Valores podem variar conforme o curso.</p>
+        </article>
+
+        <!-- Plano 3 -->
+        <article class="pricing-card">
+          <h2>Plano Institucional</h2>
+          <p class="pricing-tagline">
+            Para escolas, grupos de estudo e projetos educacionais.
+          </p>
+          <ul class="pricing-list">
+            <li>Turmas online ou presenciais (a combinar)</li>
+            <li>Palestras e oficinas temáticas</li>
+            <li>Consultoria didático-pedagógica</li>
+            <li>Certificados negociáveis</li>
+          </ul>
+          <p class="pricing-price">
+            <strong>Valores sob consulta</strong>
+          </p>
+          <a href="index.html#contato" class="btn light pricing-btn">
+            Falar sobre parceria
+          </a>
+          <p class="pricing-note">Atendimento personalizado conforme demanda.</p>
+        </article>
+      </div>
+
+      <p class="pricing-disclaimer">
+        Os valores apresentados são estimativas e podem ser ajustados de acordo
+        com a carga horária, modalidade de atendimento e complexidade do trabalho.
+        Envie uma mensagem pelo formulário para receber um orçamento detalhado.
+      </p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; <span id="year"></span> Valmi Assessoria Acadêmica. Todos os direitos reservados.</p>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Equipe | Valmi Assessoria Acadêmica</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="top-bar">
+    <div class="logo-text">Valmi Assessoria Acadêmica</div>
+    <nav class="top-nav">
+        <a href="index.html#inicio">Início</a>
+        <a href="planos.html">Planos e Preços</a>
+        <a href="blog.html">Blog</a>
+        <a href="equipe.html">Equipe</a>
+        <a href="index.html#contato" class="nav-btn">Contato</a>
+    </nav>
+
+  </header>
+
+  <main class="page-main">
+    <section class="page-hero">
+      <h1>Equipe</h1>
+      <p class="section-lead">
+        Conheça quem está à frente da Valmi Assessoria Acadêmica e colabora
+        com projetos de ensino, pesquisa e escrita.
+      </p>
+    </section>
+
+    <section class="team-section">
+      <div class="team-grid">
+        <!-- Membro 1 -->
+        <article class="team-card principal">
+          <div class="team-photo">
+            <!-- Se quiser, troque por uma foto real -->
+            <span>VS</span>
+          </div>
+          <h2>Valderi da Silva</h2>
+          <p class="team-role">Fundador • Professor e Orientador</p>
+          <p class="team-bio">
+            Bacharel em Filosofia e Teologia, licenciado e pós-graduado em
+            Filosofia, com especialização em Língua Portuguesa. Atua na
+            orientação de trabalhos acadêmicos, aulas particulares e
+            projetos de pesquisa nas áreas de humanidades.
+          </p>
+          <ul class="team-details">
+            <li>Atuação em ensino médio, graduação e pós-graduação</li>
+            <li>Experiência com TCC, monografia, artigos e projetos de pesquisa</li>
+            <li>Foco em escrita, leitura crítica e argumentação</li>
+          </ul>
+        </article>
+
+        <!-- Membro 2 – exemplo de colaborador -->
+        <article class="team-card">
+          <div class="team-photo">
+            <span>CL</span>
+          </div>
+          <h2>Colaborador(a) convidado(a)</h2>
+          <p class="team-role">Revisão de textos / Tradução</p>
+          <p class="team-bio">
+            Profissional convidado para parcerias em revisão ortográfica,
+            normalização ABNT e, quando necessário, tradução de textos
+            acadêmicos.
+          </p>
+          <ul class="team-details">
+            <li>Revisão gramatical e estilística</li>
+            <li>Adequação às normas da instituição</li>
+            <li>Atendimento sob demanda, via parceria</li>
+          </ul>
+        </article>
+
+        <!-- Você pode duplicar mais .team-card para futuras pessoas -->
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; <span id="year"></span> Valmi Assessoria Acadêmica. Todos os direitos reservados.</p>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

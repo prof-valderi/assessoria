@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Valmi Assessoria Acadêmica</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="top-bar">
+    <div class="logo-text">Valmi Assessoria Acadêmica</div>
+    <nav class="top-nav">
+        <a href="#inicio">Início</a>
+        <a href="planos.html">Planos e Preços</a>
+        <a href="#contato" class="nav-btn">Contato</a>
+    </nav>
+  </header>
+
+  <main id="inicio" class="hero">
+    <!-- Coluna esquerda: “logo” grande -->
+    <section class="hero-left">
+      <div class="brand-card">
+        <div class="brand-initials">VA</div>
+        <div class="brand-subtitle">
+          Português • História • Filosofia
+        </div>
+        <div class="brand-footer">
+          Aulas Particulares<br />
+          Assessoria Acadêmica
+        </div>
+      </div>
+    </section>
+
+    <!-- Coluna direita: texto e botões -->
+    <section class="hero-right">
+      <div class="hero-content">
+        <p class="hello">Olá, meu nome é</p>
+        <h1 class="name">Valderi da Silva.</h1>
+
+        <ul class="qualifications">
+          <li>Bacharelado em Filosofia</li>
+          <li>Bacharelado em Teologia</li>
+          <li>Licenciatura e pós-graduação em Filosofia</li>
+          <li>Especialização em Língua Portuguesa</li>
+          <li>Avançada</li>
+        </ul>
+
+        <div class="hero-buttons">
+          <a href="#pedido" class="btn primary">Faça seu pedido</a>
+          <a href="#planos" class="btn light">Planos e serviços</a>
+          <a href="#blog" class="btn dark">Blog</a>
+          <a href="#colaboracoes" class="btn light">Colaborações</a>
+          <a href="#equipe" class="btn light">Equipe</a>
+        </div>
+
+        <div class="social">
+          <a href="#" aria-label="Instagram">IG</a>
+          <a href="#" aria-label="Facebook">FB</a>
+          <a href="#" aria-label="YouTube">YT</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Sessões vazias só para âncora (você preenche depois) -->
+  <section id="planos" class="section-placeholder">
+    <h2>Planos e Serviços</h2>
+    <p>Em breve, informações detalhadas sobre pacotes, valores e formas de atendimento.</p>
+  </section>
+
+  <section id="blog" class="section-placeholder">
+    <h2>Blog</h2>
+    <p>Artigos, dicas de estudo, reflexões filosóficas e materiais de apoio.</p>
+  </section>
+
+  <section id="colaboracoes" class="section-placeholder">
+    <h2>Colaborações</h2>
+    <p>Parcerias com escolas, universidades, cursinhos e projetos educacionais.</p>
+  </section>
+
+  <section id="equipe" class="section-placeholder">
+    <h2>Equipe</h2>
+    <p>Conheça quem faz parte da Valmi Assessoria Acadêmica.</p>
+  </section>
+
+  <section id="contato" class="contato-section">
+  <h2>Entre em contato</h2>
+  <p>
+    Envie sua dúvida, descreva o que você precisa ou peça um orçamento.
+    Responderei o mais breve possível.
+  </p>
+
+  <!-- FORMULÁRIO DE CONTATO -->
+  <form 
+    class="contato-form"
+    action="https://formsubmit.co/suporte@valderi.com.br"
+    method="POST"
+  >
+    <!-- CONFIGURAÇÕES DO FORMSUBMIT -->
+    <input type="hidden" name="_subject" value="Novo contato - Valmi Assessoria Acadêmica">
+    <input type="hidden" name="_template" value="table">
+    <!-- URL para onde o usuário será redirecionado após enviar -->
+    <input type="hidden" name="_next" value="https://SEU_DOMINIO/index.html#contato">
+    <!-- Para desativar o captcha do FormSubmit -->
+    <input type="hidden" name="_captcha" value="false">
+
+    <div class="form-grid">
+      <div class="form-group">
+        <label for="nome">Nome completo</label>
+        <input type="text" id="nome" name="nome" required>
+      </div>
+
+      <div class="form-group">
+        <label for="email">E-mail</label>
+        <input type="email" id="email" name="email" required>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="assunto">Assunto</label>
+      <input type="text" id="assunto" name="assunto" placeholder="Aulas particulares, TCC, mentoria, etc." required>
+    </div>
+
+    <div class="form-group">
+      <label for="mensagem">Mensagem</label>
+      <textarea id="mensagem" name="mensagem" rows="5" required></textarea>
+    </div>
+
+    <button type="submit" class="btn primary form-btn">
+      Enviar mensagem
+    </button>
+  </form>
+</section>
+
+
+  <footer class="site-footer">
+    <p>&copy; <span id="year"></span> Valmi Assessoria Acadêmica. Todos os direitos reservados.</p>
+  </footer>
+
+  <script>
+    // Atualiza ano automaticamente
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

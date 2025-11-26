@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blog | Valmi Assessoria Acadêmica</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="top-bar">
+    <div class="logo-text">Valmi Assessoria Acadêmica</div>
+    <nav class="top-nav">
+        <a href="index.html#inicio">Início</a>
+        <a href="planos.html">Planos e Preços</a>
+        <a href="blog.html">Blog</a>
+        <a href="equipe.html">Equipe</a>
+        <a href="index.html#contato" class="nav-btn">Contato</a>
+    </nav>
+>
+  </header>
+
+  <main class="page-main">
+    <section class="page-hero">
+      <h1>Blog</h1>
+      <p class="section-lead">
+        Textos sobre filosofia, teologia, educação e escrita acadêmica para
+        apoiar seus estudos e projetos.
+      </p>
+    </section>
+
+    <section class="blog-list">
+      <!-- Post 1 -->
+      <article class="blog-card">
+        <div class="blog-meta">
+          <span class="blog-date">10 nov 2025</span>
+          <span class="blog-tag">Filosofia</span>
+        </div>
+        <h2>Como a filosofia pode melhorar sua escrita acadêmica</h2>
+        <p>
+          A reflexão filosófica não se limita à história das ideias. Ela também
+          ajuda a organizar argumentos, clarear conceitos e estruturar melhor
+          seus textos de pesquisa...
+        </p>
+        <a href="#" class="blog-link">Ler artigo completo</a>
+      </article>
+
+      <!-- Post 2 -->
+      <article class="blog-card">
+        <div class="blog-meta">
+          <span class="blog-date">02 nov 2025</span>
+          <span class="blog-tag">Metodologia</span>
+        </div>
+        <h2>4 erros comuns na elaboração de TCC — e como evitá-los</h2>
+        <p>
+          Escolha de tema, recorte mal definido, falta de diálogo com a
+          bibliografia... Alguns problemas aparecem em quase todos os trabalhos
+          de conclusão de curso. Veja como corrigi-los a tempo.
+        </p>
+        <a href="#" class="blog-link">Ler artigo completo</a>
+      </article>
+
+      <!-- Post 3 -->
+      <article class="blog-card">
+        <div class="blog-meta">
+          <span class="blog-date">20 out 2025</span>
+          <span class="blog-tag">Estudos</span>
+        </div>
+        <h2>Organizando uma rotina de estudos humanísticos</h2>
+        <p>
+          Ler, anotar, revisar e escrever: montar um ciclo de estudos eficiente
+          é fundamental para quem enfrenta textos densos de filosofia,
+          teologia e ciências humanas em geral.
+        </p>
+        <a href="#" class="blog-link">Ler artigo completo</a>
+      </article>
+
+      <!-- Você poderá duplicar mais .blog-card conforme for publicando textos -->
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; <span id="year"></span> Valmi Assessoria Acadêmica. Todos os direitos reservados.</p>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
