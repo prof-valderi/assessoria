@@ -552,7 +552,7 @@ body {
   margin-bottom: 4px;
 }
 
-/* RESPONSIVO */
+/* RESPONSIVO GERAL */
 
 @media (max-width: 900px) {
   .hero-inner {
@@ -577,20 +577,76 @@ body {
   }
 }
 
+/* Celulares pequenos */
+
 @media (max-width: 600px) {
+  body {
+    font-size: 15px;
+  }
+
+  /* Topo empilhado: logo em cima, menu embaixo */
   .top-bar {
-    padding: 0 14px;
+    padding: 8px 10px;
+    flex-direction: column;
+    align-items: flex-start;
+    height: auto;
+    gap: 6px;
+  }
+
+  .logo-text {
+    font-size: 0.8rem;
   }
 
   .top-nav {
-    gap: 10px;
+    width: 100%;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .top-nav a {
+    font-size: 0.8rem;
+  }
+
+  .top-nav .nav-btn {
+    padding: 6px 12px;
+  }
+
+  /* Hero em coluna, tudo centralizado */
+  .hero {
+    padding-top: 100px;
+    padding-bottom: 30px;
+  }
+
+  .hero-content {
+    max-width: 100%;
   }
 
   .name {
-    font-size: 2.2rem;
+    font-size: 2rem;
   }
 
+  .hero-buttons {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .hero-buttons .btn {
+    width: 100%;
+  }
+
+  /* Formulário em uma coluna só */
   .form-grid {
     grid-template-columns: 1fr;
+  }
+
+  /* Espaçamento das seções */
+  .section,
+  .contato-section {
+    padding: 50px 0;
+  }
+
+  .page-hero {
+    padding-top: 30px;
   }
 }
