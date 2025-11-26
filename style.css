@@ -21,7 +21,7 @@ body {
 }
 
 /* ============================
-   TOPO + MENU
+   TOPO + MENU (DESKTOP E MOBILE)
 ============================ */
 
 .top-bar {
@@ -43,7 +43,7 @@ body {
   position: relative;
 }
 
-/* LOGO CENTRAL */
+/* LOGO SEMPRE CENTRALIZADO */
 .logo-text {
   font-size: 0.95rem;
   letter-spacing: 0.14em;
@@ -53,40 +53,14 @@ body {
   font-weight: 600;
 }
 
-/* MENU (DESKTOP) */
-.top-nav {
-  display: flex;
-  gap: 20px;
-  align-items: center;
-  position: absolute;
-  right: 16px;
-}
-
-.top-nav a {
-  text-decoration: none;
-  color: #e5e5e5;
-  font-size: 0.85rem;
-}
-
-.top-nav a:hover {
-  color: #ffffff;
-}
-
-.top-nav .nav-btn {
-  padding: 8px 18px;
-  border-radius: 999px;
-  border: 1px solid #ffffff;
-  font-size: 0.8rem;
-}
-
-/* MENU HAMBÚRGUER (MOBILE) */
+/* ÍCONE HAMBÚRGUER — aparece em TODAS as telas */
 .menu-toggle {
   position: absolute;
   left: 16px;
   background: transparent;
   border: none;
   cursor: pointer;
-  display: none; /* aparece no mobile */
+  display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -113,13 +87,47 @@ body {
   transform: translateY(-6px) rotate(-45deg);
 }
 
+/* MENU — escondido em todas as telas até abrir */
+.top-nav {
+  display: none;
+  position: fixed;
+  inset: 64px 0 0 0; /* abaixo do topo */
+  background: rgba(5, 5, 10, 0.98);
+  flex-direction: column;
+  align-items: center;
+  padding-top: 28px;
+  gap: 22px;
+}
+
+.top-nav.open {
+  display: flex;
+}
+
+.top-nav a {
+  text-decoration: none;
+  color: #e5e5e5;
+  font-size: 1rem;
+}
+
+.top-nav a:hover {
+  color: #ffffff;
+}
+
+.top-nav .nav-btn {
+  padding: 10px 24px;
+  border-radius: 999px;
+  border: 1px solid #ffffff;
+  font-size: 0.85rem;
+}
+
+
 /* ============================
    HERO SECTION
 ============================ */
 
 .hero {
   min-height: 100vh;
-  padding-top: 80px; /* espaço do topo fixo */
+  padding-top: 90px;  /* espaço do topo */
   padding-bottom: 40px;
   background: radial-gradient(circle at top left, #272744 0, #050509 45%, #000 100%);
   display: flex;
@@ -199,11 +207,11 @@ body {
   padding: 10px 18px;
   border-radius: 999px;
   font-size: 0.8rem;
-  text-transform: uppercase;
   letter-spacing: 0.14em;
   text-decoration: none;
   cursor: pointer;
   transition: 0.2s;
+  text-align: center;
 }
 
 .btn.primary {
@@ -252,6 +260,7 @@ body {
   color: #000000;
 }
 
+
 /* ============================
    SEÇÕES GERAIS
 ============================ */
@@ -284,6 +293,7 @@ body {
 .inline-link:hover {
   border-bottom-color: #fff;
 }
+
 
 /* ============================
    FORMULÁRIO DE CONTATO
@@ -351,12 +361,13 @@ body {
   border-top: 1px solid rgba(255, 255, 255, 0.04);
 }
 
+
 /* ============================
    PÁGINAS INTERNAS
 ============================ */
 
 .page-main {
-  padding-top: 90px;
+  padding-top: 100px;
 }
 
 .page-hero {
@@ -392,6 +403,7 @@ body {
   border-radius: 16px;
   padding: 22px 20px;
   border: 1px solid #262639;
+  position: relative;
 }
 
 .pricing-card h2 {
@@ -440,6 +452,7 @@ body {
   gap: 24px;
 }
 
+
 /* ============================
    RESPONSIVIDADE
 ============================ */
@@ -447,10 +460,6 @@ body {
 @media (max-width: 900px) {
   .hero-inner {
     flex-direction: column;
-  }
-
-  .hero {
-    padding-top: 100px;
   }
 
   .pricing-grid {
@@ -462,6 +471,7 @@ body {
   }
 }
 
+
 /* MOBILE */
 @media (max-width: 600px) {
   body {
@@ -472,43 +482,16 @@ body {
     height: 56px;
   }
 
-  /* MOSTRA O HAMBURGUER */
-  .menu-toggle {
-    display: flex;
-  }
-
-  /* MENU EXPANSIVO MOBILE */
   .top-nav {
-    display: none;
-    position: fixed;
     inset: 56px 0 0 0;
-    background: rgba(5, 5, 10, 0.98);
-    flex-direction: column;
-    align-items: center;
-    padding-top: 24px;
-    gap: 18px;
-  }
-
-  .top-nav.open {
-    display: flex;
-  }
-
-  .top-nav a {
-    font-size: 1rem;
-  }
-
-  .logo-text {
-    font-size: 0.8rem;
-    max-width: 70%;
-  }
-
-  /* Hero */
-  .hero-inner {
-    flex-direction: column;
   }
 
   .name {
     font-size: 2rem;
+  }
+
+  .hero-content {
+    max-width: 100%;
   }
 
   .hero-buttons {
@@ -518,7 +501,6 @@ body {
 
   .hero-buttons .btn {
     width: 100%;
-    text-align: center;
   }
 
   .form-grid {
