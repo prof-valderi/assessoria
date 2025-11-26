@@ -92,7 +92,7 @@ body {
   display: none;
   position: fixed;
   inset: 64px 0 0 0; /* abaixo do topo */
-  background: rgba(0, 0, 0, 0.92);
+  background: #000000;
   flex-direction: column;
   align-items: center;
   padding-top: 28px;
@@ -507,4 +507,5 @@ body {
     grid-template-columns: 1fr;
   }
 }
+
 
