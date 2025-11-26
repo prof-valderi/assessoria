@@ -11,6 +11,9 @@ body {
   background: #050509;
   color: #ffffff;
 }
+body.menu-open {
+  overflow: hidden;
+}
 
 /* CONTAINER PADRÃO */
 .container {
@@ -676,4 +679,5 @@ body {
     padding: 50px 0;
   }
 }
+
 
