@@ -52,6 +52,12 @@
       font-size: 0.8rem;
       color: #aaaaaa;
     }
+    .admin-actions {
+      display: flex;
+      gap: 10px;
+      margin-top: 6px;
+      flex-wrap: wrap;
+    }
   </style>
 </head>
 <body>
@@ -91,7 +97,7 @@
       </div>
       <button id="btn-login" class="btn primary">Entrar</button>
       <p class="muted" style="margin-top:8px;">
-        Atenção: este login é apenas para esconder a área de edição. 
+        Atenção: este login é apenas para esconder a área de edição.
         Não oferece segurança real, pois o código fica visível no navegador.
       </p>
     </div>
@@ -108,201 +114,4 @@
         <input type="text" id="artigo-data">
       </div>
       <div class="admin-form-group">
-        <label for="artigo-categoria">Categoria</label>
-        <input type="text" id="artigo-categoria" placeholder="Filosofia, Metodologia, Estudos...">
-      </div>
-      <div class="admin-form-group">
-        <label for="artigo-resumo">Resumo curto (aparece na lista do blog)</label>
-        <textarea id="artigo-resumo" rows="3"></textarea>
-      </div>
-      <div class="admin-form-group">
-        <label for="artigo-slug">Nome do arquivo (sem espaços, ex.: 27-11-2025-1)</label>
-        <input type="text" id="artigo-slug" placeholder="27-11-2025-1">
-        <p class="muted">O arquivo final ficará em: <code>artigos/&lt;slug&gt;.html</code></p>
-      </div>
-      <div class="admin-form-group">
-        <label for="artigo-conteudo">Conteúdo (HTML simples: parágrafos, títulos, listas)</label>
-        <textarea id="artigo-conteudo" rows="10" placeholder="<p>Escreva aqui o conteúdo do artigo...</p>"></textarea>
-      </div>
-      <button id="btn-gerar" class="btn primary">Gerar artigo</button>
-
-      <div class="admin-output" id="admin-output" style="display:none;">
-        <h2 style="margin-top:20px;font-size:1.1rem;">1. Código HTML do artigo</h2>
-        <p class="muted">Crie um arquivo em <strong>/artigos/slug.html</strong> e cole o código abaixo:</p>
-        <div class="admin-form-group">
-          <textarea id="saida-html"></textarea>
-        </div>
-
-        <h2 style="margin-top:12px;font-size:1.1rem;">2. Linha para adicionar em <code>blog.html</code></h2>
-        <p class="muted">Cole este objeto dentro do array <code>posts</code> no <strong>blog.html</strong>:</p>
-        <div class="admin-form-group">
-          <textarea id="saida-post" rows="4"></textarea>
-        </div>
-      </div>
-    </div>
-  </main>
-
-  <footer class="site-footer">
-    <p>&copy; <span id="year"></span> Valmi Assessoria Acadêmica. Todos os direitos reservados.</p>
-  </footer>
-
-  <script>
-    // rodapé
-    const yearEl = document.getElementById('year');
-    if (yearEl) yearEl.textContent = new Date().getFullYear();
-
-    // menu
-    const menuToggle = document.querySelector('.menu-toggle');
-    const menuOverlay = document.querySelector('.menu-overlay');
-
-    if (menuToggle && menuOverlay) {
-      menuToggle.addEventListener('click', () => {
-        menuOverlay.classList.toggle('open');
-        menuToggle.classList.toggle('open');
-        document.body.classList.toggle('menu-open');
-      });
-
-      menuOverlay.querySelectorAll('a').forEach(link => {
-        link.addEventListener('click', () => {
-          menuOverlay.classList.remove('open');
-          menuToggle.classList.remove('open');
-          document.body.classList.remove('menu-open');
-        });
-      });
-    }
-
-    // LOGIN "FAKE"
-    const loginCard = document.getElementById('login-card');
-    const editorCard = document.getElementById('editor-card');
-    const btnLogin = document.getElementById('btn-login');
-
-    btnLogin.addEventListener('click', () => {
-      const email = document.getElementById('login-email').value.trim();
-      const senha = document.getElementById('login-senha').value.trim();
-
-      // credenciais que você mencionou
-      if (email === 'suporte@valderi.com.br' && senha === 'amor281213') {
-        loginCard.style.display = 'none';
-        editorCard.style.display = 'block';
-      } else {
-        alert('Usuário ou senha incorretos.');
-      }
-    });
-
-    // GERAR ARTIGO
-    const btnGerar = document.getElementById('btn-gerar');
-    const saidaHtml = document.getElementById('saida-html');
-    const saidaPost = document.getElementById('saida-post');
-    const outputBox = document.getElementById('admin-output');
-
-    btnGerar.addEventListener('click', () => {
-      const titulo = document.getElementById('artigo-titulo').value.trim();
-      const data = document.getElementById('artigo-data').value.trim();
-      const categoria = document.getElementById('artigo-categoria').value.trim();
-      const resumo = document.getElementById('artigo-resumo').value.trim();
-      const slug = document.getElementById('artigo-slug').value.trim();
-      const conteudo = document.getElementById('artigo-conteudo').value.trim();
-
-      if (!titulo || !data || !categoria || !resumo || !slug || !conteudo) {
-        alert('Preencha todos os campos antes de gerar.');
-        return;
-      }
-
-      const arquivo = `${slug}.html`;
-      const caminho = `artigos/${arquivo}`;
-
-      // HTML completo do artigo
-      const htmlArtigo = `<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>${titulo} | Valmi Assessoria Acadêmica</title>
-  <link rel="stylesheet" href="../style.css" />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
-</head>
-<body>
-  <header class="top-bar">
-    <div class="container top-bar-inner">
-      <button class="menu-toggle" aria-label="Abrir menu">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
-      <a href="../index.html" class="logo-text">Valmi Assessoria Acadêmica</a>
-    </div>
-  </header>
-
-  <nav class="menu-overlay" aria-hidden="true">
-    <ul>
-      <li><a href="../index.html">Início</a></li>
-      <li><a href="../planos.html">Planos e Preços</a></li>
-      <li><a href="../blog.html">Blog</a></li>
-      <li><a href="../equipe.html">Equipe</a></li>
-      <li><a href="../index.html#contato">Contato</a></li>
-    </ul>
-  </nav>
-
-  <main class="page-main">
-    <section class="page-hero container">
-      <h1>${titulo}</h1>
-      <p class="section-lead">${resumo}</p>
-      <p class="blog-meta" style="margin-top:8px;">
-        <span class="blog-date">${data}</span> ·
-        <span class="blog-tag">${categoria}</span>
-      </p>
-    </section>
-
-    <section class="blog-article container" style="padding: 10px 16px 80px; max-width: 800px;">
-      ${conteudo}
-    </section>
-  </main>
-
-  <footer class="site-footer">
-    <p>&copy; <span id="year"></span> Valmi Assessoria Acadêmica. Todos os direitos reservados.</p>
-  </footer>
-
-  <script>
-    const yearEl = document.getElementById('year');
-    if (yearEl) yearEl.textContent = new Date().getFullYear();
-
-    const menuToggle = document.querySelector('.menu-toggle');
-    const menuOverlay = document.querySelector('.menu-overlay');
-
-    if (menuToggle && menuOverlay) {
-      menuToggle.addEventListener('click', () => {
-        menuOverlay.classList.toggle('open');
-        menuToggle.classList.toggle('open');
-        document.body.classList.toggle('menu-open');
-      });
-
-      menuOverlay.querySelectorAll('a').forEach(link => {
-        link.addEventListener('click', () => {
-          menuOverlay.classList.remove('open');
-          menuToggle.classList.remove('open');
-          document.body.classList.remove('menu-open');
-        });
-      });
-    }
-  <\/script>
-</body>
-</html>`;
-
-      // objeto para o array posts do blog.html
-      const postObjeto = `{
-  titulo: "${titulo}",
-  data: "${data}",
-  categoria: "${categoria}",
-  resumo: "${resumo}",
-  link: "${caminho}"
-},`;
-
-      saidaHtml.value = htmlArtigo;
-      saidaPost.value = postObjeto;
-      outputBox.style.display = 'block';
-    });
-  </script>
-</body>
-</html>
+        <label
