@@ -440,6 +440,21 @@ body.menu-open {
   background: #e6e6e6;
   transform: translateY(-2px);
 }
+.blog-back {
+  display: inline-block;
+  margin-top: 24px;
+  padding: 10px 22px;
+  background: #ffffff;
+  color: #000;
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+}
+
+.blog-back:hover {
+  background: #e6e6e6;
+}
 
 /* ===== Equipe ===== */
 
@@ -594,11 +609,4 @@ body.menu-open {
   text-transform: uppercase;
   letter-spacing: 0.08em;
 }
-.blog-article p {
-  margin-bottom: 1rem;
-  line-height: 1.7;
-}
-
-
-
 
