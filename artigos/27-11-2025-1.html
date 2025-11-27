@@ -3,13 +3,48 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Tudo começa pela leitura | Valmi Assessoria Acadêmica</title>
+  <title>TÍTULO DO ARTIGO | Valmi Assessoria Acadêmica</title>
   <link rel="stylesheet" href="../style.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* ajuste leve para deixar o artigo mais bonito */
+    .blog-article p {
+      margin-bottom: 1.2rem;
+      line-height: 1.75;
+      font-size: 1rem;
+      color: #e3e3e3;
+    }
+
+    .blog-article h2,
+    .blog-article h3 {
+      margin-top: 1.8rem;
+      margin-bottom: 0.8rem;
+      color: #ffffff;
+    }
+
+    .blog-back {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 10px 22px;
+      background: #ffffff;
+      color: #000;
+      border-radius: 999px;
+      text-decoration: none;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+    }
+
+    .blog-back:hover {
+      background: #e6e6e6;
+    }
+  </style>
 </head>
+
 <body>
+  <!-- TOPO -->
   <header class="top-bar">
     <div class="container top-bar-inner">
       <button class="menu-toggle" aria-label="Abrir menu">
@@ -17,10 +52,12 @@
         <span></span>
         <span></span>
       </button>
+
       <a href="../index.html" class="logo-text">Valmi Assessoria Acadêmica</a>
     </div>
   </header>
 
+  <!-- MENU OVERLAY -->
   <nav class="menu-overlay" aria-hidden="true">
     <ul>
       <li><a href="../index.html">Início</a></li>
@@ -33,20 +70,53 @@
 
   <main class="page-main">
     <section class="page-hero container">
-      <h1>Tudo começa pela leitura</h1>
-      <p class="section-lead">Existe um amor pelo estudo, algo que não se confunde com uma míope visão da realidade, que muitas vezes parece ser até inimiga do esforço desenvolvido pelo estudante.</p>
+      <h1>TÍTULO DO ARTIGO</h1>
+
+      <!-- Resumo opcional -->
+      <p class="section-lead">
+        Um pequeno texto introdutório sobre o conteúdo do artigo.
+      </p>
+
+      <!-- Data e categoria -->
       <p class="blog-meta" style="margin-top:8px;">
-        <span class="blog-date">27/11/2025</span> ·
-        <span class="blog-tag">Estudo</span>
+        <span class="blog-date">DATA DO ARTIGO</span> ·
+        <span class="blog-tag">CATEGORIA</span>
       </p>
     </section>
 
+    <!-- CONTEÚDO DO ARTIGO -->
     <section class="blog-article container" style="padding: 10px 16px 80px; max-width: 800px;">
-      Existe um amor pelo estudo, algo que não se confunde com uma míope visão da realidade, que muitas vezes parece ser até inimiga do esforço desenvolvido pelo estudante.
-      
-Este amor pelo estudo precisa ser entendido como modo de vida, pois é experimentável aquele ditado popular que expressa nossa constante condição de "aprendiz" durante a vida: "somos alunos até o fim da vida".
 
-Mas este amor desenvolve-se a partir de um hábito inicial, a leitura. É necessário ler, e ler constantemente, sem medo de "perder tempo". A leitura diária e perseverante nunca será diagnosticada como nociva à vida humana, mas pelo contrário, potencializadora de grande evolução humana e intelectual.
+      <!-- EXEMPLO DE ESTRUTURA (substitua pelo conteúdo do seu artigo) -->
+      <p>
+        Este é o primeiro parágrafo da matéria. Você pode escrever textos longos
+        normalmente. Cada linha em branco vira um novo parágrafo automático.
+      </p>
+
+      <p>
+        Aqui um segundo parágrafo, mantendo o estilo simples, leve e adequado
+        para leitura em tela. Quebras de linha internas são convertidas em 
+        <code>&lt;br&gt;</code> automaticamente pelo gerador de artigos.
+      </p>
+
+      <h2>Subtítulo exemplo</h2>
+
+      <p>
+        Você pode inserir subtítulos usando <code>&lt;h2&gt;</code> ou <code>&lt;h3&gt;</code>
+        para organizar melhor o texto.
+      </p>
+
+      <h3>Lista de exemplo</h3>
+
+      <ul>
+        <li>Primeiro ponto importante</li>
+        <li>Segundo ponto relevante</li>
+        <li>Terceiro ponto útil</li>
+      </ul>
+
+      <!-- BOTÃO VOLTAR AO BLOG -->
+      <a href="../blog.html" class="blog-back">← Voltar ao Blog</a>
+
     </section>
   </main>
 
@@ -55,9 +125,11 @@ Mas este amor desenvolve-se a partir de um hábito inicial, a leitura. É necess
   </footer>
 
   <script>
+    // ano do rodapé
     const yearEl = document.getElementById('year');
     if (yearEl) yearEl.textContent = new Date().getFullYear();
 
+    // menu overlay
     const menuToggle = document.querySelector('.menu-toggle');
     const menuOverlay = document.querySelector('.menu-overlay');
 
