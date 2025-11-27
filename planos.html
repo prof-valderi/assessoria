@@ -123,14 +123,12 @@
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
   </script>
-  <script>
-  // Ano do rodapé
+<script>
   const yearEl = document.getElementById('year');
   if (yearEl) {
     yearEl.textContent = new Date().getFullYear();
   }
 
-  // Menu hambúrguer
   const menuToggle = document.querySelector('.menu-toggle');
   const topNav = document.querySelector('.top-nav');
 
@@ -138,17 +136,19 @@
     menuToggle.addEventListener('click', () => {
       topNav.classList.toggle('open');
       menuToggle.classList.toggle('open');
+      document.body.classList.toggle('menu-open');
     });
 
-    // (Opcional) Fechar menu ao clicar em um link
     topNav.querySelectorAll('a').forEach(link => {
       link.addEventListener('click', () => {
         topNav.classList.remove('open');
         menuToggle.classList.remove('open');
+        document.body.classList.remove('menu-open');
       });
     });
   }
 </script>
 </body>
 </html>
+
 
