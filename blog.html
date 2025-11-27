@@ -43,7 +43,7 @@
     </section>
 
     <section class="blog-list" id="blog-list">
-      <!-- os artigos serão inseridos aqui via JavaScript -->
+      <!-- Os artigos serão inseridos aqui via JavaScript -->
     </section>
   </main>
 
@@ -54,9 +54,11 @@
   <script>
     // ano do rodapé
     const yearEl = document.getElementById('year');
-    if (yearEl) yearEl.textContent = new Date().getFullYear();
+    if (yearEl) {
+      yearEl.textContent = new Date().getFullYear();
+    }
 
-    // menu
+    // menu hamburguer + overlay
     const menuToggle = document.querySelector('.menu-toggle');
     const menuOverlay = document.querySelector('.menu-overlay');
 
@@ -79,16 +81,23 @@
     // ============================
     // LISTA DE ARTIGOS
     // ============================
-    // SEMPRE que criar um novo artigo em /artigos/, adicione um item aqui.
-    // Exemplo de caminho: artigos/27-11-2025-1.html
+    // Sempre que criar um novo artigo em /artigos/,
+    // adicione um item aqui com titulo, data, categoria, resumo e link.
 
     const posts = [
       {
-      titulo: "Tudo começa pela leitura",
-      data: "27/11/2025",
-      categoria: "Estudo",
-      resumo: "Existe um amor pelo estudo, algo que não se confunde com uma míope visão da realidade, que muitas vezes parece ser até inimiga do esforço desenvolvido pelo estudante.",
-      link: "artigos/27-11-2025-1.html"
+        titulo: "Como a filosofia pode melhorar sua escrita acadêmica",
+        data: "27 nov 2025",
+        categoria: "Filosofia",
+        resumo: "Reflexões filosóficas podem ajudar a organizar argumentos, clarear conceitos e fortalecer a estrutura de textos acadêmicos.",
+        link: "artigos/27-11-2025-1.html"
+      },
+      {
+        titulo: "4 erros comuns na elaboração de TCC — e como evitá-los",
+        data: "20 nov 2025",
+        categoria: "Metodologia",
+        resumo: "Tema mal recortado, pouca bibliografia, ausência de problema de pesquisa... Veja como corrigir esses problemas antes da entrega.",
+        link: "artigos/20-11-2025-1.html"
       },
       {
         titulo: "Organizando uma rotina de estudos em humanidades",
@@ -112,7 +121,7 @@
           </div>
           <h2>${post.titulo}</h2>
           <p>${post.resumo}</p>
-          <a href="${post.link}" class="blog-link">Ler artigo completo</a>
+          <a href="${post.link}" class="blog-btn">Ler artigo completo</a>
         `;
         blogListEl.appendChild(article);
       });
@@ -120,5 +129,3 @@
   </script>
 </body>
 </html>
-
-
