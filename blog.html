@@ -10,36 +10,33 @@
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-<header class="top-bar">
-  <div class="container top-bar-inner">
+  <!-- TOPO -->
+  <header class="top-bar">
+    <div class="container top-bar-inner">
+      <button class="menu-toggle" aria-label="Abrir menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
 
-    <!-- Botão hambúrguer -->
-    <button class="menu-toggle" aria-label="Abrir menu">
-      <span></span>
-      <span></span>
-      <span></span>
-    </button>
+      <a href="index.html" class="logo-text">Valmi Assessoria Acadêmica</a>
 
-    <!-- TÍTULO DO SITE (agora é link para home) -->
-    <a href="index.html" class="logo-text">Valmi Assessoria Acadêmica</a>
-
-    <!-- MENU EXPANSÍVEL -->
-    <nav class="top-nav">
-      <a href="index.html">Início</a>
-      <a href="planos.html">Planos e Preços</a>
-      <a href="blog.html">Blog</a>
-      <a href="equipe.html">Equipe</a>
-      <a href="index.html#contato" class="nav-btn">Contato</a>
-    </nav>
-  </div>
-</header>
+      <nav class="top-nav">
+        <a href="index.html">Início</a>
+        <a href="planos.html">Planos e Preços</a>
+        <a href="blog.html">Blog</a>
+        <a href="equipe.html">Equipe</a>
+        <a href="index.html#contato" class="nav-btn">Contato</a>
+      </nav>
+    </div>
+  </header>
 
   <main class="page-main">
-    <section class="page-hero">
+    <section class="page-hero container">
       <h1>Blog</h1>
       <p class="section-lead">
-        Textos sobre filosofia, teologia, educação e escrita acadêmica para
-        apoiar seus estudos e projetos.
+        Textos sobre filosofia, teologia, educação e escrita acadêmica
+        para apoiar seus estudos e projetos.
       </p>
     </section>
 
@@ -52,9 +49,9 @@
         </div>
         <h2>Como a filosofia pode melhorar sua escrita acadêmica</h2>
         <p>
-          A reflexão filosófica não se limita à história das ideias. Ela também
-          ajuda a organizar argumentos, clarear conceitos e estruturar melhor
-          seus textos de pesquisa...
+          A reflexão filosófica não se limita à história das ideias.
+          Ela também ajuda a organizar argumentos, clarear conceitos
+          e estruturar melhor seus textos de pesquisa...
         </p>
         <a href="#" class="blog-link">Ler artigo completo</a>
       </article>
@@ -68,8 +65,8 @@
         <h2>4 erros comuns na elaboração de TCC — e como evitá-los</h2>
         <p>
           Escolha de tema, recorte mal definido, falta de diálogo com a
-          bibliografia... Alguns problemas aparecem em quase todos os trabalhos
-          de conclusão de curso. Veja como corrigi-los a tempo.
+          bibliografia... Alguns problemas aparecem em quase todos os
+          trabalhos de conclusão de curso. Veja como corrigi-los a tempo.
         </p>
         <a href="#" class="blog-link">Ler artigo completo</a>
       </article>
@@ -83,13 +80,11 @@
         <h2>Organizando uma rotina de estudos humanísticos</h2>
         <p>
           Ler, anotar, revisar e escrever: montar um ciclo de estudos eficiente
-          é fundamental para quem enfrenta textos densos de filosofia,
-          teologia e ciências humanas em geral.
+          é fundamental para quem enfrenta textos densos de filosofia, teologia
+          e ciências humanas em geral.
         </p>
         <a href="#" class="blog-link">Ler artigo completo</a>
       </article>
-
-      <!-- Você poderá duplicar mais .blog-card conforme for publicando textos -->
     </section>
   </main>
 
@@ -98,35 +93,29 @@
   </footer>
 
   <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
-<script>
-  const yearEl = document.getElementById('year');
-  if (yearEl) {
-    yearEl.textContent = new Date().getFullYear();
-  }
+    const yearEl = document.getElementById('year');
+    if (yearEl) {
+      yearEl.textContent = new Date().getFullYear();
+    }
 
-  const menuToggle = document.querySelector('.menu-toggle');
-  const topNav = document.querySelector('.top-nav');
+    const menuToggle = document.querySelector('.menu-toggle');
+    const topNav = document.querySelector('.top-nav');
 
-  if (menuToggle && topNav) {
-    menuToggle.addEventListener('click', () => {
-      topNav.classList.toggle('open');
-      menuToggle.classList.toggle('open');
-      document.body.classList.toggle('menu-open');
-    });
-
-    topNav.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => {
-        topNav.classList.remove('open');
-        menuToggle.classList.remove('open');
-        document.body.classList.remove('menu-open');
+    if (menuToggle && topNav) {
+      menuToggle.addEventListener('click', () => {
+        topNav.classList.toggle('open');
+        menuToggle.classList.toggle('open');
+        document.body.classList.toggle('menu-open');
       });
-    });
-  }
-</script>
+
+      topNav.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+          topNav.classList.remove('open');
+          menuToggle.classList.remove('open');
+          document.body.classList.remove('menu-open');
+        });
+      });
+    }
+  </script>
 </body>
 </html>
-
-
-
