@@ -12,7 +12,7 @@ body {
   color: #ffffff;
 }
 
-/* Se o menu estiver aberto, bloqueia rolagem */
+/* Quando o menu está aberto, impede a rolagem da página */
 body.menu-open {
   overflow: hidden;
 }
@@ -26,7 +26,7 @@ body.menu-open {
 }
 
 /* ============================
-   TOPO + MENU HAMBÚRGUER
+   TOPO + MENU OVERLAY
 ============================ */
 
 .top-bar {
@@ -44,11 +44,10 @@ body.menu-open {
   height: 64px;
   display: flex;
   align-items: center;
-  justify-content: center; /* CENTRALIZA O TÍTULO */
+  justify-content: center; /* Título no centro */
   position: relative;
 }
 
-/* Título do site (link para a home) */
 .logo-text {
   font-size: 0.95rem;
   letter-spacing: 0.14em;
@@ -59,9 +58,9 @@ body.menu-open {
   text-decoration: none;
 }
 
-/* Ícone hambúrguer (aparece sempre) */
+/* BOTÃO MENU (HAMBÚRGUER) */
 .menu-toggle {
-  position: fixed;    /* fixo na tela, por cima de tudo */
+  position: fixed; /* para ficar sempre no topo da página */
   top: 16px;
   left: 16px;
   background: transparent;
@@ -73,7 +72,7 @@ body.menu-open {
   align-items: center;
   gap: 4px;
   padding: 4px;
-  z-index: 3000;      /* MAIS ALTO DE TODOS */
+  z-index: 3000; /* acima do overlay */
 }
 
 .menu-toggle span {
@@ -81,10 +80,10 @@ body.menu-open {
   width: 22px;
   height: 2px;
   background: #ffffff;
-  transition: 0.2s ease;
+  transition: 0.3s ease;
 }
 
-/* Animação para X quando o menu abre */
+/* Animação para X */
 .menu-toggle.open span:nth-child(1) {
   transform: translateY(6px) rotate(45deg);
 }
@@ -95,41 +94,50 @@ body.menu-open {
   transform: translateY(-6px) rotate(-45deg);
 }
 
-/* ========= MENU OVERLAY ========= */
-/* NAV vira um overlay centralizado que cobre toda a tela */
+/* ============================
+   MENU OVERLAY (NOVA VERSÃO)
+============================ */
 
-.top-nav {
+/* Overlay cobrindo toda a tela */
+.menu-overlay {
   position: fixed;
-  inset: 0;                    /* cobre TODA a tela */
-  background: #000000;         /* fundo sólido escuro */
-  display: none;               /* escondido por padrão */
-  flex-direction: column;
+  inset: 0;             /* cobre TODA a tela */
+  background: #000000;  /* preto sólido */
+  display: none;        /* escondido inicialmente */
   align-items: center;
-  justify-content: center;     /* centraliza verticalmente */
-  gap: 24px;
-  z-index: 2000;               /* acima do conteúdo e do header */
+  justify-content: center;
+  z-index: 2000;        /* acima de qualquer conteúdo */
 }
 
-.top-nav.open {
+.menu-overlay.open {
   display: flex;
 }
 
-.top-nav a {
-  text-decoration: none;
-  color: #e5e5e5;
-  font-size: 1.2rem;
+.menu-overlay ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  align-items: center;
 }
 
-.top-nav a:hover {
+.menu-overlay a {
+  text-decoration: none;
+  color: #e5e5e5;
+  font-size: 1.35rem;
+  font-weight: 400;
+}
+
+.menu-overlay a:hover {
   color: #ffffff;
 }
 
-.top-nav .nav-btn {
-  margin-top: 12px;
+.menu-overlay a[href*="#contato"] {
+  margin-top: 10px;
   padding: 12px 26px;
   border-radius: 999px;
   border: 1px solid #ffffff;
-  font-size: 0.9rem;
+  font-size: 1rem;
 }
 
 /* ============================
@@ -138,7 +146,7 @@ body.menu-open {
 
 .hero {
   min-height: 100vh;
-  padding-top: 90px;  /* espaço do topo */
+  padding-top: 90px;
   padding-bottom: 40px;
   background: radial-gradient(circle at top left, #272744 0, #050509 45%, #000 100%);
   display: flex;
@@ -152,7 +160,7 @@ body.menu-open {
   align-items: center;
 }
 
-/* Coluna esquerda — Imagem */
+/* IMAGEM */
 .hero-left {
   flex: 1;
   display: flex;
@@ -175,7 +183,7 @@ body.menu-open {
   object-fit: cover;
 }
 
-/* Coluna direita — Texto */
+/* TEXTO */
 .hero-right {
   flex: 1.2;
   display: flex;
@@ -188,22 +196,21 @@ body.menu-open {
 
 .hello {
   font-size: 1rem;
-  margin-bottom: 5px;
-  color: #eaeaea;
+  color: #dddddd;
+  margin-bottom: 6px;
 }
 
 .name {
-  font-size: 2.7rem;
+  font-size: 2.8rem;
   font-weight: 700;
   margin-bottom: 18px;
 }
 
 .qualifications {
   list-style: none;
-  font-size: 0.95rem;
-  color: #dedede;
   margin-bottom: 26px;
   line-height: 1.6;
+  color: #e5e5e5;
 }
 
 /* BOTÕES */
@@ -242,12 +249,7 @@ body.menu-open {
   border: 1px solid #444;
 }
 
-.btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.6);
-}
-
-/* Redes sociais */
+/* ÍCONE SOCIAL */
 .social {
   display: flex;
   gap: 10px;
@@ -261,23 +263,15 @@ body.menu-open {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 0.75rem;
   color: #ffffff;
-  text-decoration: none;
-}
-
-.social a:hover {
-  background: #ffffff;
-  color: #000000;
 }
 
 /* ============================
-   SEÇÕES GERAIS
+   SEÇÕES
 ============================ */
 
 .section {
   padding: 60px 0;
-  border-top: 1px solid rgba(255, 255, 255, 0.04);
 }
 
 .section-alt {
@@ -300,12 +294,9 @@ body.menu-open {
   border-bottom: 1px solid #777;
   text-decoration: none;
 }
-.inline-link:hover {
-  border-bottom-color: #fff;
-}
 
 /* ============================
-   FORMULÁRIO DE CONTATO
+   CONTATO
 ============================ */
 
 .contato-section {
@@ -316,16 +307,6 @@ body.menu-open {
 .contato-section h2 {
   font-size: 1.9rem;
   margin-bottom: 12px;
-}
-
-.contato-section p {
-  font-size: 0.95rem;
-  color: #dedede;
-  margin-bottom: 24px;
-}
-
-.contato-form {
-  margin-top: 10px;
 }
 
 .form-grid {
@@ -339,8 +320,7 @@ body.menu-open {
 }
 
 .form-group label {
-  font-size: 0.85rem;
-  margin-bottom: 6px;
+  font-size: 0.9rem;
   color: #eee;
 }
 
@@ -350,32 +330,8 @@ body.menu-open {
   padding: 10px 12px;
   border-radius: 10px;
   border: 1px solid #2b2b3c;
-  background: rgba(8, 8, 16, 0.95);
-  color: #ffffff;
-  font-size: 0.9rem;
-}
-
-.form-group input:focus,
-.form-group textarea:focus {
-  border-color: #ffffff;
-  outline: none;
-}
-
-.form-btn {
-  margin-top: 4px;
-}
-
-/* ============================
-   RODAPÉ
-============================ */
-
-.site-footer {
-  text-align: center;
-  padding: 32px 16px;
-  font-size: 0.8rem;
-  color: #aaaaaa;
-  background: #050509;
-  border-top: 1px solid rgba(255, 255, 255, 0.04);
+  background: #0b0b13;
+  color: white;
 }
 
 /* ============================
@@ -419,73 +375,28 @@ body.menu-open {
   border-radius: 16px;
   padding: 22px 20px;
   border: 1px solid #262639;
-  position: relative;
 }
 
-.pricing-card h2 {
-  font-size: 1.25rem;
-}
-
-.pricing-tagline {
-  font-size: 0.9rem;
-  color: #cccccc;
-  margin-bottom: 14px;
-}
-
-.pricing-list {
-  list-style: none;
-  font-size: 0.9rem;
-  color: #dddddd;
-  margin-bottom: 16px;
-}
-
-.pricing-list li {
-  margin-bottom: 6px;
-}
-
-.pricing-price {
-  font-size: 0.95rem;
-  margin-bottom: 14px;
-}
-
-.pricing-btn {
-  width: 100%;
-}
-
-.pricing-note {
-  font-size: 0.8rem;
-  color: #aaaaaa;
-  margin-top: 10px;
-}
-
-.pricing-disclaimer {
-  font-size: 0.85rem;
-  color: #bbbbbb;
-  margin-top: 26px;
-  line-height: 1.7;
-}
-
-.pricing-card.destaque {
-  border-color: #ffffff;
-  box-shadow: 0 0 0 1px #ffffff22, 0 18px 30px rgba(0, 0, 0, 0.8);
+.destaque {
+  border-color: white;
 }
 
 .badge {
   position: absolute;
   top: 16px;
   right: 16px;
+  border: 1px solid white;
   padding: 4px 10px;
   border-radius: 999px;
-  border: 1px solid #fff;
   font-size: 0.7rem;
 }
 
 /* ===== Blog ===== */
 
 .blog-list {
-  padding: 30px 16px 80px;
   max-width: 900px;
   margin: 0 auto;
+  padding: 30px 16px 80px;
   display: flex;
   flex-direction: column;
   gap: 20px;
@@ -500,52 +411,23 @@ body.menu-open {
 
 .blog-meta {
   display: flex;
-  align-items: center;
   gap: 10px;
   font-size: 0.8rem;
   color: #aaaaaa;
-  margin-bottom: 6px;
 }
 
 .blog-tag {
+  border: 1px solid #444;
   padding: 2px 10px;
   border-radius: 999px;
-  border: 1px solid #444;
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
-  font-size: 0.7rem;
-}
-
-.blog-card h2 {
-  font-size: 1.15rem;
-  margin-bottom: 8px;
-}
-
-.blog-card p {
-  font-size: 0.9rem;
-  color: #dddddd;
-  line-height: 1.7;
-  margin-bottom: 10px;
-}
-
-.blog-link {
-  font-size: 0.85rem;
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
-  text-decoration: none;
-  color: #ffffff;
-}
-
-.blog-link:hover {
-  text-decoration: underline;
 }
 
 /* ===== Equipe ===== */
 
 .team-section {
-  padding: 30px 16px 80px;
   max-width: 1100px;
   margin: 0 auto;
+  padding: 30px 16px 80px;
 }
 
 .team-grid {
@@ -561,49 +443,28 @@ body.menu-open {
   border: 1px solid #262639;
 }
 
-.team-card.principal {
-  border-color: #ffffff;
-  box-shadow: 0 0 0 1px #ffffff22, 0 16px 28px rgba(0, 0, 0, 0.8);
-}
-
 .team-photo {
   width: 64px;
   height: 64px;
   border-radius: 50%;
-  border: 1px solid #ffffff;
+  border: 1px solid white;
   display: flex;
-  align-items: center;
   justify-content: center;
-  font-size: 1.3rem;
+  align-items: center;
   margin-bottom: 12px;
 }
 
-.team-card h2 {
-  font-size: 1.2rem;
-  margin-bottom: 4px;
-}
+/* ============================
+   FOOTER
+============================ */
 
-.team-role {
-  font-size: 0.9rem;
-  color: #cccccc;
-  margin-bottom: 10px;
-}
-
-.team-bio {
-  font-size: 0.9rem;
-  color: #dddddd;
-  line-height: 1.7;
-  margin-bottom: 10px;
-}
-
-.team-details {
-  list-style: none;
-  font-size: 0.9rem;
-  color: #dddddd;
-}
-
-.team-details li {
-  margin-bottom: 4px;
+.site-footer {
+  text-align: center;
+  padding: 32px 16px;
+  font-size: 0.8rem;
+  color: #aaaaaa;
+  background: #050509;
+  border-top: 1px solid rgba(255, 255, 255, 0.04);
 }
 
 /* ============================
@@ -614,41 +475,27 @@ body.menu-open {
   .hero-inner {
     flex-direction: column;
   }
-
-  .pricing-grid {
-    grid-template-columns: 1fr;
-  }
-
+  .pricing-grid,
   .team-grid {
     grid-template-columns: 1fr;
   }
 }
 
-/* MOBILE */
 @media (max-width: 600px) {
-  body {
-    font-size: 15px;
-  }
-
   .top-bar-inner {
     height: 56px;
   }
 
   .logo-text {
     font-size: 0.8rem;
-    max-width: 70%;
   }
 
   .hero {
     padding-top: 90px;
   }
 
-  .hero-content {
-    max-width: 100%;
-  }
-
   .name {
-    font-size: 2rem;
+    font-size: 2.2rem;
   }
 
   .hero-buttons {
@@ -656,16 +503,7 @@ body.menu-open {
     width: 100%;
   }
 
-  .hero-buttons .btn {
-    width: 100%;
-  }
-
   .form-grid {
     grid-template-columns: 1fr;
-  }
-
-  .section,
-  .contato-section {
-    padding: 50px 0;
   }
 }
