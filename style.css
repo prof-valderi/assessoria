@@ -609,4 +609,82 @@ body.menu-open {
   text-transform: uppercase;
   letter-spacing: 0.08em;
 }
+/* ============================
+   ANIMAÇÃO SUAVE DOS CARDS
+============================ */
+
+/* efeito geral nos cards */
+.pricing-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.25s ease, box-shadow 0.25s ease,
+              border-color 0.25s ease, background 0.25s ease;
+  transform: translateY(0);
+}
+
+/* animação de entrada (fade + subir levemente) */
+@keyframes cardFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* aplica a animação a todos os cards */
+.pricing-card {
+  animation: cardFadeUp 0.6s ease both;
+}
+
+/* atraso suave em cada card para efeito em cascata */
+.pricing-card:nth-child(1) { animation-delay: 0.05s; }
+.pricing-card:nth-child(2) { animation-delay: 0.10s; }
+.pricing-card:nth-child(3) { animation-delay: 0.15s; }
+.pricing-card:nth-child(4) { animation-delay: 0.20s; }
+.pricing-card:nth-child(5) { animation-delay: 0.25s; }
+.pricing-card:nth-child(6) { animation-delay: 0.30s; }
+.pricing-card:nth-child(7) { animation-delay: 0.35s; }
+.pricing-card:nth-child(8) { animation-delay: 0.40s; }
+
+/* hover suave */
+.pricing-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.6);
+}
+
+/* ============================
+   DESTAQUE ESPECIAL – PRODUÇÃO
+============================ */
+
+.pricing-card.producao {
+  background: radial-gradient(circle at top, #29284a 0, #151425 40%, #0a0a12 100%);
+  border-color: #c8ff4b;
+  box-shadow: 0 14px 36px rgba(200, 255, 75, 0.15);
+}
+
+.pricing-card.producao h2 {
+  color: #ffffff;
+}
+
+.pricing-card.producao .pricing-price-main {
+  color: #c8ff4b;
+}
+
+/* botão nos cards de produção um pouco mais chamativo */
+.pricing-card.producao .pricing-btn {
+  border: 1px solid #c8ff4b;
+}
+
+/* em telas pequenas, reduzir um pouco o efeito de hover */
+@media (max-width: 600px) {
+  .pricing-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.6);
+  }
+}
+
 
