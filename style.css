@@ -11,6 +11,8 @@ body {
   background: #050509;
   color: #ffffff;
 }
+
+/* Quando o menu está aberto, desabilita rolagem */
 body.menu-open {
   overflow: hidden;
 }
@@ -35,7 +37,7 @@ body.menu-open {
   background: rgba(5, 5, 10, 0.9);
   backdrop-filter: blur(10px);
   border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-  z-index: 20;
+  z-index: 1000;
 }
 
 .top-bar-inner {
@@ -70,6 +72,7 @@ body.menu-open {
   align-items: center;
   gap: 4px;
   padding: 4px;
+  z-index: 2001; /* acima do overlay */
 }
 
 .menu-toggle span {
@@ -91,25 +94,21 @@ body.menu-open {
   transform: translateY(-6px) rotate(-45deg);
 }
 
-/* MENU LATERAL (SLIDE) – DESKTOP E TABLET */
+/* MENU OVERLAY DE TELA INTEIRA (SLIDE) */
 .top-nav {
   position: fixed;
-  top: 64px;         /* logo abaixo da barra */
-  left: 0;
-  right: 0;
-  bottom: 0;
-  width: 100%;       /* ocupa a largura inteira */
-  background: #000000;  /* fundo totalmente preto */
+  inset: 0;                /* cobre a tela toda */
+  background: #000000;     /* fundo totalmente preto */
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  padding: 24px 20px;
-  gap: 18px;
+  padding: 80px 24px 24px; /* espaço para não ficar colado no topo */
+  gap: 20px;
 
   /* começa fora da tela à esquerda */
   transform: translateX(-100%);
   transition: transform 0.25s ease-out;
-  z-index: 30;
+  z-index: 2000;           /* acima de todo o conteúdo e do header */
 }
 
 /* quando abre */
@@ -120,7 +119,7 @@ body.menu-open {
 .top-nav a {
   text-decoration: none;
   color: #e5e5e5;
-  font-size: 0.95rem;
+  font-size: 1rem;
 }
 
 .top-nav a:hover {
@@ -638,10 +637,7 @@ body.menu-open {
   }
 
   .top-nav {
-    top: 56px;   /* acompanha a altura menor da barra */
-    left: 0;
-    right: 0;
-    width: 100%; /* também ocupa toda a largura no celular */
+    padding-top: 72px; /* compensa a barra mais baixa */
   }
 
   .logo-text {
@@ -679,5 +675,3 @@ body.menu-open {
     padding: 50px 0;
   }
 }
-
-
