@@ -10,6 +10,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
+  <!-- TOPO -->
   <header class="top-bar">
     <div class="container top-bar-inner">
       <button class="menu-toggle" aria-label="Abrir menu">
@@ -22,6 +23,7 @@
     </div>
   </header>
 
+  <!-- MENU OVERLAY -->
   <nav class="menu-overlay" aria-hidden="true">
     <ul>
       <li><a href="index.html">Início</a></li>
@@ -42,70 +44,86 @@
 
     <section class="pricing">
       <div class="pricing-grid">
+
+        <!-- CONSULTA ONLINE -->
         <article class="pricing-card">
-          <h2>Plano Individual</h2>
-          <p class="pricing-tagline">Aulas particulares sob medida.</p>
-          <ul class="pricing-list">
-            <li>Atendimento 1:1 online</li>
-            <li>Disciplinas: Português, História, Filosofia</li>
-            <li>Correção comentada de exercícios</li>
-            <li>Relatório de desempenho mensal</li>
-          </ul>
-          <p class="pricing-price">
-            A partir de <strong>R$ 120,00</strong> / hora-aula*
+          <h2>Consulta Online</h2>
+          <p class="pricing-tagline">
+            Atendimento pontual no estilo “tira dúvidas”.
           </p>
+          <ul class="pricing-list">
+            <li>Organização de trabalhos acadêmicos</li>
+            <li>Método de estudos e planejamento</li>
+            <li>Como traçar metas nos estudos</li>
+            <li>Leituras indicadas conforme seu objetivo</li>
+            <li>Aula única, duração de 1 hora</li>
+          </ul>
+
+          <p class="pricing-price-main">
+            R$ 120,00
+          </p>
+
           <a href="index.html#contato" class="btn primary pricing-btn">
             Solicitar orçamento
           </a>
-          <p class="pricing-note">*Valores variam conforme carga horária.</p>
         </article>
 
-        <article class="pricing-card destaque">
-          <div class="badge">Mais procurado</div>
-          <h2>Plano Mentoria</h2>
-          <p class="pricing-tagline">
-            Acompanhamento contínuo para projetos e estudos.
-          </p>
-          <ul class="pricing-list">
-            <li>2 encontros semanais (online)</li>
-            <li>Suporte por e-mail entre encontros</li>
-            <li>Acompanhamento de TCC / monografia</li>
-            <li>Planejamento de estudos personalizado</li>
-          </ul>
-          <p class="pricing-price">
-            A partir de <strong>R$ 690,00</strong> / mês*
-          </p>
-          <a href="index.html#contato" class="btn primary pricing-btn">
-            Quero este plano
-          </a>
-          <p class="pricing-note">*Valores podem variar conforme o curso.</p>
-        </article>
-
+        <!-- PLANO AULA DOMICILIAR -->
         <article class="pricing-card">
-          <h2>Plano Institucional</h2>
+          <h2>Plano Aula Domiciliar</h2>
           <p class="pricing-tagline">
-            Para escolas, grupos de estudo e projetos educacionais.
+            Pacote de aulas presenciais em domicílio.
           </p>
           <ul class="pricing-list">
-            <li>Turmas online ou presenciais (a combinar)</li>
-            <li>Palestras e oficinas temáticas</li>
-            <li>Consultoria didático-pedagógica</li>
-            <li>Certificados negociáveis</li>
+            <li>Aulas particulares focadas em uma disciplina</li>
+            <li>Reforço escolar para séries finais do Fundamental e Ensino Médio</li>
+            <li>Plano com 10 aulas presenciais</li>
+            <li>Duração de 1 hora/aula</li>
           </ul>
-          <p class="pricing-price">
-            <strong>Valores sob consulta</strong>
+
+          <p class="pricing-price-main">
+            R$ 960,00
           </p>
+
           <a href="index.html#contato" class="btn light pricing-btn">
-            Falar sobre parceria
+            Solicitar orçamento
           </a>
-          <p class="pricing-note">Atendimento personalizado conforme demanda.</p>
+        </article>
+
+        <!-- PLANO ORIENTAÇÃO ONLINE (PROMOÇÃO) -->
+        <article class="pricing-card destaque">
+          <h2>
+            Plano Orientação Online
+            <span class="badge-promo">Promoção</span>
+          </h2>
+          <p class="pricing-tagline">
+            Acompanhamento online contínuo para estudos e trabalhos.
+          </p>
+          <ul class="pricing-list">
+            <li>Orientação de estudos e de atividades escolares</li>
+            <li>Apoio em trabalhos escritos e organização da rotina</li>
+            <li>Plano com 10 encontros on-line</li>
+            <li>Duração de 1 hora por encontro</li>
+          </ul>
+
+          <p class="pricing-price-old">
+            De R$ 680,00
+          </p>
+          <p class="pricing-price-main">
+            R$ 476,00 <span class="pricing-desconto">(-30%)</span>
+          </p>
+
+          <a href="index.html#contato" class="btn primary pricing-btn">
+            Aproveitar promoção
+          </a>
         </article>
       </div>
 
       <p class="pricing-disclaimer">
-        Os valores apresentados são estimativas e podem ser ajustados de acordo
-        com a carga horária, modalidade de atendimento e complexidade do trabalho.
-        Envie uma mensagem pelo formulário para receber um orçamento detalhado.
+        Os valores apresentados são referentes aos pacotes descritos e podem ser
+        ajustados de acordo com a localidade, modalidade de atendimento e demandas
+        específicas. Envie uma mensagem pelo formulário de contato para receber
+        um orçamento detalhado e personalizado.
       </p>
     </section>
   </main>
