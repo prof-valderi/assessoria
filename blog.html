@@ -10,6 +10,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
+  <!-- TOPO -->
   <header class="top-bar">
     <div class="container top-bar-inner">
       <button class="menu-toggle" aria-label="Abrir menu">
@@ -22,6 +23,7 @@
     </div>
   </header>
 
+  <!-- MENU OVERLAY -->
   <nav class="menu-overlay" aria-hidden="true">
     <ul>
       <li><a href="index.html">Início</a></li>
@@ -36,53 +38,12 @@
     <section class="page-hero container">
       <h1>Blog</h1>
       <p class="section-lead">
-        Textos sobre filosofia, teologia, educação e escrita acadêmica
-        para apoiar seus estudos e projetos.
+        Artigos sobre filosofia, teologia, educação e escrita acadêmica.
       </p>
     </section>
 
-    <section class="blog-list">
-      <article class="blog-card">
-        <div class="blog-meta">
-          <span class="blog-date">10 nov 2025</span>
-          <span class="blog-tag">Filosofia</span>
-        </div>
-        <h2>Como a filosofia pode melhorar sua escrita acadêmica</h2>
-        <p>
-          A reflexão filosófica não se limita à história das ideias.
-          Ela também ajuda a organizar argumentos, clarear conceitos
-          e estruturar melhor seus textos de pesquisa...
-        </p>
-        <a href="#" class="blog-link">Ler artigo completo</a>
-      </article>
-
-      <article class="blog-card">
-        <div class="blog-meta">
-          <span class="blog-date">02 nov 2025</span>
-          <span class="blog-tag">Metodologia</span>
-        </div>
-        <h2>4 erros comuns na elaboração de TCC — e como evitá-los</h2>
-        <p>
-          Escolha de tema, recorte mal definido, falta de diálogo com a
-          bibliografia... Alguns problemas aparecem em quase todos os
-          trabalhos de conclusão de curso. Veja como corrigi-los a tempo.
-        </p>
-        <a href="#" class="blog-link">Ler artigo completo</a>
-      </article>
-
-      <article class="blog-card">
-        <div class="blog-meta">
-          <span class="blog-date">20 out 2025</span>
-          <span class="blog-tag">Estudos</span>
-        </div>
-        <h2>Organizando uma rotina de estudos humanísticos</h2>
-        <p>
-          Ler, anotar, revisar e escrever: montar um ciclo de estudos eficiente
-          é fundamental para quem enfrenta textos densos de filosofia, teologia
-          e ciências humanas em geral.
-        </p>
-        <a href="#" class="blog-link">Ler artigo completo</a>
-      </article>
+    <section class="blog-list" id="blog-list">
+      <!-- os artigos serão inseridos aqui via JavaScript -->
     </section>
   </main>
 
@@ -91,11 +52,11 @@
   </footer>
 
   <script>
+    // ano do rodapé
     const yearEl = document.getElementById('year');
-    if (yearEl) {
-      yearEl.textContent = new Date().getFullYear();
-    }
+    if (yearEl) yearEl.textContent = new Date().getFullYear();
 
+    // menu
     const menuToggle = document.querySelector('.menu-toggle');
     const menuOverlay = document.querySelector('.menu-overlay');
 
@@ -112,6 +73,55 @@
           menuToggle.classList.remove('open');
           document.body.classList.remove('menu-open');
         });
+      });
+    }
+
+    // ============================
+    // LISTA DE ARTIGOS
+    // ============================
+    // SEMPRE que criar um novo artigo em /artigos/, adicione um item aqui.
+    // Exemplo de caminho: artigos/27-11-2025-1.html
+
+    const posts = [
+      {
+        titulo: "Como a filosofia pode melhorar sua escrita acadêmica",
+        data: "27 nov 2025",
+        categoria: "Filosofia",
+        resumo: "Reflexões filosóficas podem ajudar a organizar argumentos, clarear conceitos e fortalecer a estrutura de textos acadêmicos.",
+        link: "artigos/27-11-2025-1.html"
+      },
+      {
+        titulo: "4 erros comuns na elaboração de TCC — e como evitá-los",
+        data: "20 nov 2025",
+        categoria: "Metodologia",
+        resumo: "Tema mal recortado, pouca bibliografia, ausência de problema de pesquisa... Veja como corrigir esses problemas antes da entrega.",
+        link: "artigos/20-11-2025-1.html"
+      },
+      {
+        titulo: "Organizando uma rotina de estudos em humanidades",
+        data: "10 nov 2025",
+        categoria: "Estudos",
+        resumo: "Sugestões práticas para distribuir leitura, fichamento e escrita ao longo da semana, sem perder o ritmo.",
+        link: "artigos/10-11-2025-1.html"
+      }
+    ];
+
+    const blogListEl = document.getElementById('blog-list');
+
+    if (blogListEl) {
+      posts.forEach(post => {
+        const article = document.createElement('article');
+        article.className = 'blog-card';
+        article.innerHTML = `
+          <div class="blog-meta">
+            <span class="blog-date">${post.data}</span>
+            <span class="blog-tag">${post.categoria}</span>
+          </div>
+          <h2>${post.titulo}</h2>
+          <p>${post.resumo}</p>
+          <a href="${post.link}" class="blog-link">Ler artigo completo</a>
+        `;
+        blogListEl.appendChild(article);
       });
     }
   </script>
