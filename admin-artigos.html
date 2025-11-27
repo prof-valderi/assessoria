@@ -95,7 +95,7 @@
         <label for="login-senha">Senha</label>
         <input type="password" id="login-senha" placeholder="senha">
       </div>
-      <button id="btn-login" class="btn primary">Entrar</button>
+      <button id="btn-login" class="btn primary" type="button">Entrar</button>
       <p class="muted" style="margin-top:8px;">
         Atenção: este login é apenas para esconder a área de edição.
         Não oferece segurança real, pois o código fica visível no navegador.
@@ -114,4 +114,236 @@
         <input type="text" id="artigo-data">
       </div>
       <div class="admin-form-group">
-        <label
+        <label for="artigo-categoria">Categoria</label>
+        <input type="text" id="artigo-categoria" placeholder="Filosofia, Metodologia, Estudos...">
+      </div>
+      <div class="admin-form-group">
+        <label for="artigo-resumo">Resumo curto (aparece na lista do blog)</label>
+        <textarea id="artigo-resumo" rows="3"></textarea>
+      </div>
+      <div class="admin-form-group">
+        <label for="artigo-slug">Nome do arquivo (sem espaços, ex.: 27-11-2025-1)</label>
+        <input type="text" id="artigo-slug" placeholder="27-11-2025-1">
+        <p class="muted">O arquivo final ficará em: <code>artigos/&lt;slug&gt;.html</code></p>
+      </div>
+      <div class="admin-form-group">
+        <label for="artigo-conteudo">
+          Conteúdo do artigo (texto comum; linhas em branco viram novos parágrafos)
+        </label>
+        <textarea id="artigo-conteudo" rows="12"
+          placeholder="Escreva aqui o texto do artigo.&#10;&#10;Deixe uma linha em branco para separar parágrafos."></textarea>
+      </div>
+
+      <div class="admin-actions">
+        <button id="btn-gerar" class="btn primary" type="button">Gerar artigo</button>
+        <button id="btn-novo" class="btn light" type="button">Novo artigo</button>
+      </div>
+
+      <div class="admin-output" id="admin-output" style="display:none;">
+        <h2 style="margin-top:20px;font-size:1.1rem;">1. Código HTML do artigo</h2>
+        <p class="muted">Crie um arquivo em <strong>/artigos/slug.html</strong> e cole o código abaixo:</p>
+        <div class="admin-form-group">
+          <textarea id="saida-html"></textarea>
+        </div>
+
+        <h2 style="margin-top:12px;font-size:1.1rem;">2. Linha para adicionar em <code>blog.html</code></h2>
+        <p class="muted">Cole este objeto dentro do array <code>posts</code> no <strong>blog.html</strong>:</p>
+        <div class="admin-form-group">
+          <textarea id="saida-post" rows="4"></textarea>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; <span id="year"></span> Valmi Assessoria Acadêmica. Todos os direitos reservados.</p>
+  </footer>
+
+  <script>
+    // ano rodapé
+    const yearEl = document.getElementById('year');
+    if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+    // menu overlay
+    const menuToggle = document.querySelector('.menu-toggle');
+    const menuOverlay = document.querySelector('.menu-overlay');
+
+    if (menuToggle && menuOverlay) {
+      menuToggle.addEventListener('click', () => {
+        menuOverlay.classList.toggle('open');
+        menuToggle.classList.toggle('open');
+        document.body.classList.toggle('menu-open');
+      });
+
+      menuOverlay.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+          menuOverlay.classList.remove('open');
+          menuToggle.classList.remove('open');
+          document.body.classList.remove('menu-open');
+        });
+      });
+    }
+
+    // LOGIN "FAKE"
+    const loginCard = document.getElementById('login-card');
+    const editorCard = document.getElementById('editor-card');
+    const btnLogin = document.getElementById('btn-login');
+
+    if (btnLogin) {
+      btnLogin.addEventListener('click', () => {
+        const email = document.getElementById('login-email').value.trim();
+        const senha = document.getElementById('login-senha').value.trim();
+
+        // credenciais combinadas
+        if (email === 'suporte@valderi.com.br' && senha === 'amor281213') {
+          loginCard.style.display = 'none';
+          editorCard.style.display = 'block';
+        } else {
+          alert('Usuário ou senha incorretos.');
+        }
+      });
+    }
+
+    // GERAR ARTIGO
+    const btnGerar = document.getElementById('btn-gerar');
+    const btnNovo = document.getElementById('btn-novo');
+    const saidaHtml = document.getElementById('saida-html');
+    const saidaPost = document.getElementById('saida-post');
+    const outputBox = document.getElementById('admin-output');
+
+    function limparFormulario() {
+      document.getElementById('artigo-titulo').value = '';
+      document.getElementById('artigo-data').value = '';
+      document.getElementById('artigo-categoria').value = '';
+      document.getElementById('artigo-resumo').value = '';
+      document.getElementById('artigo-slug').value = '';
+      document.getElementById('artigo-conteudo').value = '';
+      if (saidaHtml) saidaHtml.value = '';
+      if (saidaPost) saidaPost.value = '';
+      if (outputBox) outputBox.style.display = 'none';
+    }
+
+    if (btnNovo) {
+      btnNovo.addEventListener('click', limparFormulario);
+    }
+
+    if (btnGerar) {
+      btnGerar.addEventListener('click', () => {
+        const titulo = document.getElementById('artigo-titulo').value.trim();
+        const data = document.getElementById('artigo-data').value.trim();
+        const categoria = document.getElementById('artigo-categoria').value.trim();
+        const resumo = document.getElementById('artigo-resumo').value.trim();
+        const slug = document.getElementById('artigo-slug').value.trim();
+        const conteudoBruto = document.getElementById('artigo-conteudo').value.trim();
+
+        if (!titulo || !data || !categoria || !resumo || !slug || !conteudoBruto) {
+          alert('Preencha todos os campos antes de gerar.');
+          return;
+        }
+
+        const arquivo = `${slug}.html`;
+        const caminho = `artigos/${arquivo}`;
+
+        // CONVERTER TEXTO EM PARÁGRAFOS
+        const blocos = conteudoBruto.split(/\n\s*\n/);
+        const conteudoHtml = blocos
+          .map(bloco => {
+            const texto = bloco.trim().replace(/\n/g, '<br>');
+            return `<p>${texto}</p>`;
+          })
+          .join('\n\n');
+
+        const htmlArtigo = `<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>${titulo} | Valmi Assessoria Acadêmica</title>
+  <link rel="stylesheet" href="../style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="top-bar">
+    <div class="container top-bar-inner">
+      <button class="menu-toggle" aria-label="Abrir menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <a href="../index.html" class="logo-text">Valmi Assessoria Acadêmica</a>
+    </div>
+  </header>
+
+  <nav class="menu-overlay" aria-hidden="true">
+    <ul>
+      <li><a href="../index.html">Início</a></li>
+      <li><a href="../planos.html">Planos e Preços</a></li>
+      <li><a href="../blog.html">Blog</a></li>
+      <li><a href="../equipe.html">Equipe</a></li>
+      <li><a href="../index.html#contato">Contato</a></li>
+    </ul>
+  </nav>
+
+  <main class="page-main">
+    <section class="page-hero container">
+      <h1>${titulo}</h1>
+      <p class="section-lead">${resumo}</p>
+      <p class="blog-meta" style="margin-top:8px;">
+        <span class="blog-date">${data}</span> ·
+        <span class="blog-tag">${categoria}</span>
+      </p>
+    </section>
+
+    <section class="blog-article container" style="padding: 10px 16px 80px; max-width: 800px;">
+${conteudoHtml}
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; <span id="year"></span> Valmi Assessoria Acadêmica. Todos os direitos reservados.</p>
+  </footer>
+
+  <script>
+    const yearEl = document.getElementById('year');
+    if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+    const menuToggle = document.querySelector('.menu-toggle');
+    const menuOverlay = document.querySelector('.menu-overlay');
+
+    if (menuToggle && menuOverlay) {
+      menuToggle.addEventListener('click', () => {
+        menuOverlay.classList.toggle('open');
+        menuToggle.classList.toggle('open');
+        document.body.classList.toggle('menu-open');
+      });
+
+      menuOverlay.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+          menuOverlay.classList.remove('open');
+          menuToggle.classList.remove('open');
+          document.body.classList.remove('menu-open');
+        });
+      });
+    }
+  <\/script>
+</body>
+</html>`;
+
+        const postObjeto = `{
+  titulo: "${titulo}",
+  data: "${data}",
+  categoria: "${categoria}",
+  resumo: "${resumo}",
+  link: "${caminho}"
+},`;
+
+        if (saidaHtml) saidaHtml.value = htmlArtigo;
+        if (saidaPost) saidaPost.value = postObjeto;
+        if (outputBox) outputBox.style.display = 'block';
+      });
+    }
+  </script>
+</body>
+</html>
