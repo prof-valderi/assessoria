@@ -10,33 +10,29 @@
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-<header class="top-bar">
-  <div class="container top-bar-inner">
+  <!-- TOPO -->
+  <header class="top-bar">
+    <div class="container top-bar-inner">
+      <button class="menu-toggle" aria-label="Abrir menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
 
-    <!-- Botão hambúrguer -->
-    <button class="menu-toggle" aria-label="Abrir menu">
-      <span></span>
-      <span></span>
-      <span></span>
-    </button>
+      <a href="index.html" class="logo-text">Valmi Assessoria Acadêmica</a>
 
-    <!-- TÍTULO DO SITE (agora é link para home) -->
-    <a href="index.html" class="logo-text">Valmi Assessoria Acadêmica</a>
-
-    <!-- MENU EXPANSÍVEL -->
-    <nav class="top-nav">
-      <a href="index.html">Início</a>
-      <a href="planos.html">Planos e Preços</a>
-      <a href="blog.html">Blog</a>
-      <a href="equipe.html">Equipe</a>
-      <a href="index.html#contato" class="nav-btn">Contato</a>
-    </nav>
-  </div>
-</header>
-
+      <nav class="top-nav">
+        <a href="index.html">Início</a>
+        <a href="planos.html">Planos e Preços</a>
+        <a href="blog.html">Blog</a>
+        <a href="equipe.html">Equipe</a>
+        <a href="index.html#contato" class="nav-btn">Contato</a>
+      </nav>
+    </div>
+  </header>
 
   <main class="page-main">
-    <section class="page-hero">
+    <section class="page-hero container">
       <h1>Planos e Preços</h1>
       <p class="section-lead">
         Escolha o formato mais adequado às suas necessidades acadêmicas.
@@ -45,7 +41,7 @@
 
     <section class="pricing">
       <div class="pricing-grid">
-        <!-- Plano 1 -->
+        <!-- Plano Individual -->
         <article class="pricing-card">
           <h2>Plano Individual</h2>
           <p class="pricing-tagline">Aulas particulares sob medida.</p>
@@ -64,7 +60,7 @@
           <p class="pricing-note">*Valores variam conforme carga horária.</p>
         </article>
 
-        <!-- Plano 2 -->
+        <!-- Plano Mentoria -->
         <article class="pricing-card destaque">
           <div class="badge">Mais procurado</div>
           <h2>Plano Mentoria</h2>
@@ -86,7 +82,7 @@
           <p class="pricing-note">*Valores podem variar conforme o curso.</p>
         </article>
 
-        <!-- Plano 3 -->
+        <!-- Plano Institucional -->
         <article class="pricing-card">
           <h2>Plano Institucional</h2>
           <p class="pricing-tagline">
@@ -121,35 +117,29 @@
   </footer>
 
   <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
-<script>
-  const yearEl = document.getElementById('year');
-  if (yearEl) {
-    yearEl.textContent = new Date().getFullYear();
-  }
+    const yearEl = document.getElementById('year');
+    if (yearEl) {
+      yearEl.textContent = new Date().getFullYear();
+    }
 
-  const menuToggle = document.querySelector('.menu-toggle');
-  const topNav = document.querySelector('.top-nav');
+    const menuToggle = document.querySelector('.menu-toggle');
+    const topNav = document.querySelector('.top-nav');
 
-  if (menuToggle && topNav) {
-    menuToggle.addEventListener('click', () => {
-      topNav.classList.toggle('open');
-      menuToggle.classList.toggle('open');
-      document.body.classList.toggle('menu-open');
-    });
-
-    topNav.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => {
-        topNav.classList.remove('open');
-        menuToggle.classList.remove('open');
-        document.body.classList.remove('menu-open');
+    if (menuToggle && topNav) {
+      menuToggle.addEventListener('click', () => {
+        topNav.classList.toggle('open');
+        menuToggle.classList.toggle('open');
+        document.body.classList.toggle('menu-open');
       });
-    });
-  }
-</script>
+
+      topNav.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+          topNav.classList.remove('open');
+          menuToggle.classList.remove('open');
+          document.body.classList.remove('menu-open');
+        });
+      });
+    }
+  </script>
 </body>
 </html>
-
-
-
