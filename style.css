@@ -507,3 +507,72 @@ body.menu-open {
     grid-template-columns: 1fr;
   }
 }
+/* ============================
+   AJUSTES ESPECÍFICOS – PLANOS
+============================ */
+
+.pricing-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.pricing-card h2 {
+  margin-bottom: 8px;
+}
+
+.pricing-tagline {
+  font-size: 0.9rem;
+  color: #cfcfcf;
+  margin-bottom: 10px;
+}
+
+.pricing-list {
+  list-style: none;
+  font-size: 0.9rem;
+  color: #dddddd;
+  margin-bottom: 10px;
+}
+
+.pricing-list li {
+  margin-bottom: 4px;
+}
+
+.pricing-price-main {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #c8ff4b; /* tom esverdeado, estilo promoção */
+  margin: 16px 0 4px;
+}
+
+.pricing-price-old {
+  font-size: 0.9rem;
+  color: #ffb3b3;
+  text-decoration: line-through;
+}
+
+.pricing-desconto {
+  font-size: 0.9rem;
+  color: #ffdf91;
+}
+
+/* Botão alinhado abaixo dos preços, sem ocupar 100% da largura */
+.pricing-btn {
+  margin-top: 10px;
+  align-self: flex-start;
+  width: auto;
+}
+
+/* Selo PROMOÇÃO */
+.badge-promo {
+  display: inline-block;
+  margin-left: 8px;
+  padding: 2px 8px;
+  font-size: 0.65rem;
+  background: #e10600;
+  color: #ffffff;
+  border-radius: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
