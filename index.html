@@ -10,31 +10,29 @@
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-<header class="top-bar">
-  <div class="container top-bar-inner">
+  <!-- TOPO -->
+  <header class="top-bar">
+    <div class="container top-bar-inner">
+      <!-- Botão hambúrguer -->
+      <button class="menu-toggle" aria-label="Abrir menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
 
-    <!-- Botão hambúrguer -->
-    <button class="menu-toggle" aria-label="Abrir menu">
-      <span></span>
-      <span></span>
-      <span></span>
-    </button>
+      <!-- Título do site (link para home) -->
+      <a href="index.html" class="logo-text">Valmi Assessoria Acadêmica</a>
 
-    <!-- TÍTULO DO SITE (agora é link para home) -->
-    <a href="index.html" class="logo-text">Valmi Assessoria Acadêmica</a>
-
-    <!-- MENU EXPANSÍVEL -->
-    <nav class="top-nav">
-      <a href="index.html">Início</a>
-      <a href="planos.html">Planos e Preços</a>
-      <a href="blog.html">Blog</a>
-      <a href="equipe.html">Equipe</a>
-      <a href="index.html#contato" class="nav-btn">Contato</a>
-    </nav>
-  </div>
-</header>
-
-
+      <!-- Menu overlay (hambúrguer) -->
+      <nav class="top-nav">
+        <a href="index.html">Início</a>
+        <a href="planos.html">Planos e Preços</a>
+        <a href="blog.html">Blog</a>
+        <a href="equipe.html">Equipe</a>
+        <a href="index.html#contato" class="nav-btn">Contato</a>
+      </nav>
+    </div>
+  </header>
 
   <main>
     <!-- HERO -->
@@ -44,12 +42,12 @@
         <div class="hero-left">
           <div class="brand-image-wrapper">
             <img src="assessoria.jpg"
-                 alt="Valmi Assessoria Acadêmica - Português, História e Filosofia"
-                 class="brand-image">
+              alt="Valmi Assessoria Acadêmica - Português, História e Filosofia"
+              class="brand-image">
           </div>
         </div>
 
-        <!-- Coluna direita: texto, botões e redes -->
+        <!-- Coluna direita: texto -->
         <div class="hero-right">
           <div class="hero-content">
             <p class="hello">Olá, meu nome é</p>
@@ -134,17 +132,15 @@
           Responderei o mais breve possível.
         </p>
 
-        <form 
+        <form
           class="contato-form"
-          action="https://formsubmit.co/suporte@valderi.com.br"
+          action="https://formsubmit.co/SEU_EMAIL_AQUI"
           method="POST"
         >
           <!-- CONFIGURAÇÕES DO FORMSUBMIT -->
           <input type="hidden" name="_subject" value="Novo contato - Valmi Assessoria Acadêmica">
           <input type="hidden" name="_template" value="table">
-          <!-- URL para onde o usuário será redirecionado após enviar -->
-          <input type="hidden" name="_next" value="https://prof-valderi.github.io/assessoria/index.html#">
-          <!-- Para desativar o captcha do FormSubmit -->
+          <input type="hidden" name="_next" value="https://prof-valderi.github.io/assessoria/index.html#contato">
           <input type="hidden" name="_captcha" value="false">
 
           <div class="form-grid">
@@ -161,7 +157,8 @@
 
           <div class="form-group">
             <label for="assunto">Assunto</label>
-            <input type="text" id="assunto" name="assunto" placeholder="Aulas particulares, TCC, mentoria, etc." required>
+            <input type="text" id="assunto" name="assunto"
+              placeholder="Aulas particulares, TCC, mentoria, etc." required>
           </div>
 
           <div class="form-group">
@@ -182,37 +179,29 @@
   </footer>
 
   <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
-<script>
-  const yearEl = document.getElementById('year');
-  if (yearEl) {
-    yearEl.textContent = new Date().getFullYear();
-  }
+    const yearEl = document.getElementById('year');
+    if (yearEl) {
+      yearEl.textContent = new Date().getFullYear();
+    }
 
-  const menuToggle = document.querySelector('.menu-toggle');
-  const topNav = document.querySelector('.top-nav');
+    const menuToggle = document.querySelector('.menu-toggle');
+    const topNav = document.querySelector('.top-nav');
 
-  if (menuToggle && topNav) {
-    menuToggle.addEventListener('click', () => {
-      topNav.classList.toggle('open');
-      menuToggle.classList.toggle('open');
-      document.body.classList.toggle('menu-open');
-    });
-
-    topNav.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => {
-        topNav.classList.remove('open');
-        menuToggle.classList.remove('open');
-        document.body.classList.remove('menu-open');
+    if (menuToggle && topNav) {
+      menuToggle.addEventListener('click', () => {
+        topNav.classList.toggle('open');
+        menuToggle.classList.toggle('open');
+        document.body.classList.toggle('menu-open');
       });
-    });
-  }
-</script>
+
+      topNav.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+          topNav.classList.remove('open');
+          menuToggle.classList.remove('open');
+          document.body.classList.remove('menu-open');
+        });
+      });
+    }
+  </script>
 </body>
 </html>
-
-
-
-
-
