@@ -10,7 +10,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-  <!-- TOPO -->
   <header class="top-bar">
     <div class="container top-bar-inner">
       <button class="menu-toggle" aria-label="Abrir menu">
@@ -20,16 +19,18 @@
       </button>
 
       <a href="index.html" class="logo-text">Valmi Assessoria Acadêmica</a>
-
-      <nav class="top-nav">
-        <a href="index.html">Início</a>
-        <a href="planos.html">Planos e Preços</a>
-        <a href="blog.html">Blog</a>
-        <a href="equipe.html">Equipe</a>
-        <a href="index.html#contato" class="nav-btn">Contato</a>
-      </nav>
     </div>
   </header>
+
+  <nav class="menu-overlay" aria-hidden="true">
+    <ul>
+      <li><a href="index.html">Início</a></li>
+      <li><a href="planos.html">Planos e Preços</a></li>
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="equipe.html">Equipe</a></li>
+      <li><a href="index.html#contato">Contato</a></li>
+    </ul>
+  </nav>
 
   <main class="page-main">
     <section class="page-hero container">
@@ -41,7 +42,6 @@
     </section>
 
     <section class="blog-list">
-      <!-- Post 1 -->
       <article class="blog-card">
         <div class="blog-meta">
           <span class="blog-date">10 nov 2025</span>
@@ -56,7 +56,6 @@
         <a href="#" class="blog-link">Ler artigo completo</a>
       </article>
 
-      <!-- Post 2 -->
       <article class="blog-card">
         <div class="blog-meta">
           <span class="blog-date">02 nov 2025</span>
@@ -71,7 +70,6 @@
         <a href="#" class="blog-link">Ler artigo completo</a>
       </article>
 
-      <!-- Post 3 -->
       <article class="blog-card">
         <div class="blog-meta">
           <span class="blog-date">20 out 2025</span>
@@ -99,18 +97,18 @@
     }
 
     const menuToggle = document.querySelector('.menu-toggle');
-    const topNav = document.querySelector('.top-nav');
+    const menuOverlay = document.querySelector('.menu-overlay');
 
-    if (menuToggle && topNav) {
+    if (menuToggle && menuOverlay) {
       menuToggle.addEventListener('click', () => {
-        topNav.classList.toggle('open');
+        menuOverlay.classList.toggle('open');
         menuToggle.classList.toggle('open');
         document.body.classList.toggle('menu-open');
       });
 
-      topNav.querySelectorAll('a').forEach(link => {
+      menuOverlay.querySelectorAll('a').forEach(link => {
         link.addEventListener('click', () => {
-          topNav.classList.remove('open');
+          menuOverlay.classList.remove('open');
           menuToggle.classList.remove('open');
           document.body.classList.remove('menu-open');
         });
