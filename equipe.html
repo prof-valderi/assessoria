@@ -10,32 +10,29 @@
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-<header class="top-bar">
-  <div class="container top-bar-inner">
+  <!-- TOPO -->
+  <header class="top-bar">
+    <div class="container top-bar-inner">
+      <button class="menu-toggle" aria-label="Abrir menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
 
-    <!-- Botão hambúrguer -->
-    <button class="menu-toggle" aria-label="Abrir menu">
-      <span></span>
-      <span></span>
-      <span></span>
-    </button>
+      <a href="index.html" class="logo-text">Valmi Assessoria Acadêmica</a>
 
-    <!-- TÍTULO DO SITE (agora é link para home) -->
-    <a href="index.html" class="logo-text">Valmi Assessoria Acadêmica</a>
-
-    <!-- MENU EXPANSÍVEL -->
-    <nav class="top-nav">
-      <a href="index.html">Início</a>
-      <a href="planos.html">Planos e Preços</a>
-      <a href="blog.html">Blog</a>
-      <a href="equipe.html">Equipe</a>
-      <a href="index.html#contato" class="nav-btn">Contato</a>
-    </nav>
-  </div>
-</header>
+      <nav class="top-nav">
+        <a href="index.html">Início</a>
+        <a href="planos.html">Planos e Preços</a>
+        <a href="blog.html">Blog</a>
+        <a href="equipe.html">Equipe</a>
+        <a href="index.html#contato" class="nav-btn">Contato</a>
+      </nav>
+    </div>
+  </header>
 
   <main class="page-main">
-    <section class="page-hero">
+    <section class="page-hero container">
       <h1>Equipe</h1>
       <p class="section-lead">
         Conheça quem está à frente da Valmi Assessoria Acadêmica e colabora
@@ -48,11 +45,10 @@
         <!-- Membro 1 -->
         <article class="team-card principal">
           <div class="team-photo">
-            <!-- Se quiser, troque por uma foto real -->
             <span>VS</span>
           </div>
           <h2>Valderi da Silva</h2>
-          <p class="team-role">Fundador • Professor e Orientador</p>
+          <p class="team-role">Fundador · Professor e Orientador</p>
           <p class="team-bio">
             Bacharel em Filosofia e Teologia, licenciado e pós-graduado em
             Filosofia, com especialização em Língua Portuguesa. Atua na
@@ -61,12 +57,12 @@
           </p>
           <ul class="team-details">
             <li>Atuação em ensino médio, graduação e pós-graduação</li>
-            <li>Experiência com TCC, monografia, artigos e projetos de pesquisa</li>
+            <li>Experiência com TCC, monografias, artigos e projetos de pesquisa</li>
             <li>Foco em escrita, leitura crítica e argumentação</li>
           </ul>
         </article>
 
-        <!-- Membro 2 – exemplo de colaborador -->
+        <!-- Membro 2 -->
         <article class="team-card">
           <div class="team-photo">
             <span>CL</span>
@@ -84,8 +80,6 @@
             <li>Atendimento sob demanda, via parceria</li>
           </ul>
         </article>
-
-        <!-- Você pode duplicar mais .team-card para futuras pessoas -->
       </div>
     </section>
   </main>
@@ -95,35 +89,29 @@
   </footer>
 
   <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
-<script>
-  const yearEl = document.getElementById('year');
-  if (yearEl) {
-    yearEl.textContent = new Date().getFullYear();
-  }
+    const yearEl = document.getElementById('year');
+    if (yearEl) {
+      yearEl.textContent = new Date().getFullYear();
+    }
 
-  const menuToggle = document.querySelector('.menu-toggle');
-  const topNav = document.querySelector('.top-nav');
+    const menuToggle = document.querySelector('.menu-toggle');
+    const topNav = document.querySelector('.top-nav');
 
-  if (menuToggle && topNav) {
-    menuToggle.addEventListener('click', () => {
-      topNav.classList.toggle('open');
-      menuToggle.classList.toggle('open');
-      document.body.classList.toggle('menu-open');
-    });
-
-    topNav.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => {
-        topNav.classList.remove('open');
-        menuToggle.classList.remove('open');
-        document.body.classList.remove('menu-open');
+    if (menuToggle && topNav) {
+      menuToggle.addEventListener('click', () => {
+        topNav.classList.toggle('open');
+        menuToggle.classList.toggle('open');
+        document.body.classList.toggle('menu-open');
       });
-    });
-  }
-</script>
+
+      topNav.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+          topNav.classList.remove('open');
+          menuToggle.classList.remove('open');
+          document.body.classList.remove('menu-open');
+        });
+      });
+    }
+  </script>
 </body>
 </html>
-
-
-
