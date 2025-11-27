@@ -12,7 +12,7 @@ body {
   color: #ffffff;
 }
 
-/* Quando o menu está aberto, desabilita rolagem */
+/* Se o menu estiver aberto, bloqueia rolagem */
 body.menu-open {
   overflow: hidden;
 }
@@ -26,7 +26,7 @@ body.menu-open {
 }
 
 /* ============================
-   TOPO + MENU (DESKTOP E MOBILE)
+   TOPO + MENU HAMBÚRGUER
 ============================ */
 
 .top-bar {
@@ -44,11 +44,11 @@ body.menu-open {
   height: 64px;
   display: flex;
   align-items: center;
-  justify-content: center; /* CENTRALIZA O LOGO */
+  justify-content: center; /* CENTRALIZA O TÍTULO */
   position: relative;
 }
 
-/* LOGO SEMPRE CENTRALIZADO */
+/* Título do site (link para a home) */
 .logo-text {
   font-size: 0.95rem;
   letter-spacing: 0.14em;
@@ -59,9 +59,10 @@ body.menu-open {
   text-decoration: none;
 }
 
-/* ÍCONE HAMBÚRGUER — aparece em TODAS as telas */
+/* Ícone hambúrguer (aparece sempre) */
 .menu-toggle {
-  position: absolute;
+  position: fixed;    /* fixo na tela, por cima de tudo */
+  top: 16px;
   left: 16px;
   background: transparent;
   border: none;
@@ -72,7 +73,7 @@ body.menu-open {
   align-items: center;
   gap: 4px;
   padding: 4px;
-  z-index: 2001; /* acima do overlay */
+  z-index: 3000;      /* MAIS ALTO DE TODOS */
 }
 
 .menu-toggle span {
@@ -83,7 +84,7 @@ body.menu-open {
   transition: 0.2s ease;
 }
 
-/* Animação para X */
+/* Animação para X quando o menu abre */
 .menu-toggle.open span:nth-child(1) {
   transform: translateY(6px) rotate(45deg);
 }
@@ -94,32 +95,29 @@ body.menu-open {
   transform: translateY(-6px) rotate(-45deg);
 }
 
-/* MENU OVERLAY DE TELA INTEIRA (SLIDE) */
+/* ========= MENU OVERLAY ========= */
+/* NAV vira um overlay centralizado que cobre toda a tela */
+
 .top-nav {
   position: fixed;
-  inset: 0;                /* cobre a tela toda */
-  background: #000000;     /* fundo totalmente preto */
-  display: flex;
+  inset: 0;                    /* cobre TODA a tela */
+  background: #000000;         /* fundo sólido escuro */
+  display: none;               /* escondido por padrão */
   flex-direction: column;
-  align-items: flex-start;
-  padding: 80px 24px 24px; /* espaço para não ficar colado no topo */
-  gap: 20px;
-
-  /* começa fora da tela à esquerda */
-  transform: translateX(-100%);
-  transition: transform 0.25s ease-out;
-  z-index: 2000;           /* acima de todo o conteúdo e do header */
+  align-items: center;
+  justify-content: center;     /* centraliza verticalmente */
+  gap: 24px;
+  z-index: 2000;               /* acima do conteúdo e do header */
 }
 
-/* quando abre */
 .top-nav.open {
-  transform: translateX(0);
+  display: flex;
 }
 
 .top-nav a {
   text-decoration: none;
   color: #e5e5e5;
-  font-size: 1rem;
+  font-size: 1.2rem;
 }
 
 .top-nav a:hover {
@@ -127,11 +125,11 @@ body.menu-open {
 }
 
 .top-nav .nav-btn {
-  margin-top: 8px;
-  padding: 10px 24px;
+  margin-top: 12px;
+  padding: 12px 26px;
   border-radius: 999px;
   border: 1px solid #ffffff;
-  font-size: 0.85rem;
+  font-size: 0.9rem;
 }
 
 /* ============================
@@ -634,10 +632,6 @@ body.menu-open {
 
   .top-bar-inner {
     height: 56px;
-  }
-
-  .top-nav {
-    padding-top: 72px; /* compensa a barra mais baixa */
   }
 
   .logo-text {
