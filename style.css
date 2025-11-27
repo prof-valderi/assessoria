@@ -686,5 +686,68 @@ body.menu-open {
     box-shadow: 0 10px 24px rgba(0, 0, 0, 0.6);
   }
 }
+/* ============================
+   CONTATO – BOTÕES DIRETOS
+============================ */
+
+.contato-direto {
+  margin-top: 40px;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 16px;
+}
+
+.contato-direto h3 {
+  font-size: 1.3rem;
+  margin-bottom: 8px;
+  color: #ffffff;
+}
+
+.contato-direto p {
+  color: #cccccc;
+  margin-bottom: 16px;
+}
+
+.contato-botoes {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.contato-btn {
+  display: inline-block;
+  padding: 10px 22px;
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: #ffffff;
+  transition: 0.2s ease;
+}
+
+.contato-btn.whatsapp {
+  background: #25D366;
+}
+
+.contato-btn.whatsapp:hover {
+  background: #1eb85a;
+}
+
+.contato-btn.telegram {
+  background: #0088cc;
+}
+
+.contato-btn.telegram:hover {
+  background: #0077b3;
+}
+
+/* MOBILE */
+@media (max-width: 600px) {
+  .contato-botoes {
+    flex-direction: column;
+  }
+}
+
 
 
